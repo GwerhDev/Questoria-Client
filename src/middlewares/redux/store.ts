@@ -4,8 +4,8 @@ import thunkMiddleware from 'redux-thunk';
 import { DEVELOPMENT } from '../misc/consts';
 import { environment } from '../../environment';
 
-let store: any = {};
-const composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let store = {};
+const composeEnhancer = compose;
 
 if (environment === DEVELOPMENT) {
   console.log(environment)
