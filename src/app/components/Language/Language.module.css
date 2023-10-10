@@ -1,0 +1,11 @@
+.selectLanguage {
+  border: none;
+  color: var(--app-color-grey);
+  background-color: transparent;
+  padding-left: 8px;
+  
+}
+
+.selectLanguage:hover {
+  cursor: pointer;
+}

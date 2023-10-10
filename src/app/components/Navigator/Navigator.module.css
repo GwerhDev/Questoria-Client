@@ -1,0 +1,17 @@
+.navigator {
+  margin: 0;
+  padding: 0;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--dark-color);
+  box-shadow: 0px 0px 4px black;
+}
+
+.menuSection {
+  display: flex;
+  width: calc(100%/3);
+  gap: .5rem;
+}

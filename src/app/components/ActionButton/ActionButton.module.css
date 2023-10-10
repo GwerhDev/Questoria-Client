@@ -1,0 +1,12 @@
+.buttonContainer {
+  height: 35px;
+  border-radius: 3px;
+  background-color: var(--app-color-orange);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.buttonContainer:hover {
+  background-color: var(--app-color-orange-hover);
+
+}
