@@ -6,11 +6,11 @@ export const LoginInner = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleLogin() {
+  function handleLogin(e: any) {
+    e.preventDefault();
     console.log(username, password);
   }
   
-
   return (
     <form className="auth-form">
     Login
