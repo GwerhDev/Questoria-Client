@@ -5,7 +5,6 @@ import { DEVELOPMENT } from '../misc/consts';
 import { environment } from '../../environment';
 
 let store: any = {};
-const devtoolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__ || null;
 const composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 if (environment === DEVELOPMENT) {
@@ -13,7 +12,7 @@ if (environment === DEVELOPMENT) {
     rootReducer,
     compose(
       applyMiddleware(thunkMiddleware),
-      devtoolsExtension && devtoolsExtension()
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
   );
 } else {
