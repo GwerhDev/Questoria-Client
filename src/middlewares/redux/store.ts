@@ -8,6 +8,7 @@ let store: any = {};
 const composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 if (environment === DEVELOPMENT) {
+  console.log(environment)
   store = createStore(
     rootReducer,
     compose(
@@ -16,6 +17,7 @@ if (environment === DEVELOPMENT) {
     )
   );
 } else {
+  console.log(environment)
   store = createStore(
     rootReducer,
     composeEnhancer(applyMiddleware(thunkMiddleware))

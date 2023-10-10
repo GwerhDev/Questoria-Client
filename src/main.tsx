@@ -5,9 +5,6 @@ import RoutesApp from './app/routes/index.tsx';
 import store from './middlewares/redux/store';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import { environment } from './environment/index.ts';
-
-console.log(environment)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
