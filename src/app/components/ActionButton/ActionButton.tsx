@@ -1,9 +1,11 @@
-import s from './ActionButton.module.css';
+import { Link } from "react-router-dom"
 
 export const ActionButton = () => {
   return (
-    <button className={s.buttonContainer}>
-      Gustavo Educa
-    </button>
+    <Link to="/">
+      <button className="primary-button">
+        GustavoEduca
+      </button>
+    </Link>
   )
 }

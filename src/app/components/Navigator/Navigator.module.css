@@ -1,6 +1,7 @@
 .navigator {
   margin: 0;
   padding: 0;
+  height: 60px;
   padding-left: 3rem;
   padding-right: 3rem;
   display: flex;

@@ -1,6 +1,6 @@
 
 const initialState: any = {
-
+  currentUser: null
 }
 
 export default function rootReducer(state: any = initialState, action: any) {

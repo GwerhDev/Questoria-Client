@@ -14,6 +14,8 @@
   --app-color-orange-hover: #f7a73e;
   --app-color-grey: #acacac;
   --app-color-grey-soft: #acacaca4;
+  --bg-button-secundary: #344b97;
+  --bg-button-secundary-hover: #4a63b6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,4 +47,12 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+input {
+  background-color: transparent;
+  font-size: 15px;
+  padding: 1rem;
+  border-radius: 3px;
+  color: black;
 }
