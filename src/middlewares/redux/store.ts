@@ -8,7 +8,6 @@ let store: any = {};
 const composeEnhancer = compose;
 
 if (environment === DEVELOPMENT) {
-  console.log(environment)
   store = createStore(
     rootReducer,
     compose(
@@ -17,7 +16,6 @@ if (environment === DEVELOPMENT) {
     )
   );
 } else {
-  console.log(environment)
   store = createStore(
     rootReducer,
     composeEnhancer(applyMiddleware(thunkMiddleware))
