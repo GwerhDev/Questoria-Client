@@ -1,15 +1,12 @@
 import { useSelector } from 'react-redux';
 import s from './ProfileButton.module.css';
+import { $display } from '../../../functions';
 
 export const ProfileButton = () => {
   const { username, profilePic } = useSelector((state: any) => state.currentUser);
 
   function showMenu() {
-    if (document.querySelector('#user-menu').style.display === "block") {
-      document.querySelector('#user-menu').style.display="none";
-      return;
-    }
-    return document.querySelector('#user-menu').style.display="block";
+    return $display('#user-menu');
   }
 
   return (
