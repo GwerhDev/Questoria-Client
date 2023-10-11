@@ -1,6 +1,7 @@
 const defaultValue = { 
   style: {
-      transform: '', 
+      transform: '',
+      display: '',
       opacity: '', 
       filter: '', 
       scale: '', 
@@ -13,22 +14,29 @@ const defaultValue = {
       transitionDelay: '',
       transitionProperty: '',
   },
-  contains
+  contains() {
+    return;
+  }
 };
 
-function contains() {
-  return;
-}
-
 export const $d = (e: string) => {
-  return document.querySelector(e) || defaultValue
+  const element = document.querySelector(e) as HTMLElement;
+  if (element) {
+    return element;
+  }
+  return defaultValue;
 };
 
 export const $gId = (e: string) => {
-  return document.getElementById(e) || defaultValue
+  const element = document.getElementById(e) as HTMLElement;
+  if (element) {
+    return element;
+  }
+  return defaultValue;
 };
 
 export const $display = (e: string) => {
-  if ($d(e).style.display === "block") return $d(e).style.display = "none";
-  return $d(e).style.display = "block";
-}
+  const element = $d(e);
+  if (element.style.display === "block") return element.style.display = "none";
+  return element.style.display = "block";
+};
