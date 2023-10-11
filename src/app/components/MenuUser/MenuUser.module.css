@@ -1,0 +1,19 @@
+.menuContainer {
+  margin-right: 50px;
+  width: 100%;
+  background-color: var(--dark-color);
+  color: white;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  display: none;
+}
+
+.ulMenu {
+  list-style: none;
+  padding: 0;
+}
+
+.ulMenu li:hover {
+  cursor: pointer;
+  color: var(--app-color-orange);
+}

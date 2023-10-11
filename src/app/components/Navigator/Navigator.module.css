@@ -1,6 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .navigator {
   margin: 0;
   padding: 0;
+  width: auto;
   height: 60px;
   padding-left: 3rem;
   padding-right: 3rem;

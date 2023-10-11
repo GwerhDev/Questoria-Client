@@ -10,6 +10,7 @@ const Auth = () => {
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
   const authToken: string | any  = params.get('token');
+  console.log(authToken)
 
   useEffect(() => {
     setUserToken(authToken);
