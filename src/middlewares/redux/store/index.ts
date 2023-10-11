@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './reducer';
+import rootReducer from '../reducer';
 import thunkMiddleware from 'redux-thunk';
-import { DEVELOPMENT } from '../misc/consts';
-import { environment } from '../../environment';
+import { DEVELOPMENT } from '../../misc/consts';
+import { environment } from '../../../environment';
 
 let store: any = {};
 const composeEnhancer = compose;

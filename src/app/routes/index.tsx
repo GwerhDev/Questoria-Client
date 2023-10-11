@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Navigator from '../components/Navigator/Navigator';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import Auth from '../pages/Auth';
 
 function RoutesApp() {
   return (
@@ -10,6 +11,7 @@ function RoutesApp() {
       <Navigator/>
       <Routes>
         <Route path='/' element={<Home/>}/>
+        <Route path='/auth' element={<Auth/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
       </Routes>

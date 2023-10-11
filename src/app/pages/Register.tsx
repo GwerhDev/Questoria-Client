@@ -1,11 +1,16 @@
+import { SignupGoogle } from "../components/SignupGoogle/SignupGoogle";
+import { SignupInner } from "../components/SignupInner/SignupInner";
 
-const Register = () => {
+const Login = () => {
   return (
     <div className="auth-container">
       <form className="auth-form">
-        Register
+        Login
+        <SignupInner />
+        <SignupGoogle />
       </form>
-    </div>  )
+    </div>
+  )
 }
 
-export default Register;
+export default Login;
