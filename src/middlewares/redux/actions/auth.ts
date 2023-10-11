@@ -4,7 +4,7 @@ import { CURRENT_USER, ERROR } from "../../misc/consts";
 import { options } from "../../helpers";
 
 export function auth() {
-  return async function (dispatch: (arg0: { type: string; payload: any; }) => void) {
+  return async function (dispatch: any) {
     await axios.get(`${URL_API}/auth`, options())
       .then(res => {
         dispatch({
@@ -22,7 +22,7 @@ export function auth() {
 }
 
 export function loginInner(email: string, password: string) {
-  return async function (dispatch: (arg0: { type: string; payload: any; }) => void) {
+  return async function (dispatch: any) {
     await axios.post(`${URL_API}/login-inner`, { email, password })
       .then(res => {
         localStorage.setItem('userToken', res.data.token);
