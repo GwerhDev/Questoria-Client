@@ -23,7 +23,7 @@ export function auth() {
 export function loginInner(email: string, password: string) {
   return async function (dispatch: any) {
     await axios.post(`${URL_API}/login-inner`, { email, password })
-      .then(res => {
+      .then((res: any) => {
         localStorage.setItem('userToken', res.data.token);
         res.data.logged;
       })
@@ -48,7 +48,7 @@ export function loginGoogle() {
 export function signupInner(email: string, password: string) {
   return async function () {
     await axios.post(`${URL_API}/signup-inner`, { email, password })
-      .then(res => {
+      .then((res: any) => {
         return res.data.logged;
       })
       .catch((e: object) => {
@@ -61,7 +61,7 @@ export function signupInner(email: string, password: string) {
 export function signupGoogle() {
   return async function () {
     await axios.get(`${URL_API}/signup-google`)
-      .then(res => {
+      .then((res: any) => {
         return res.data.logged;
       })
       .catch((e: object) => {
