@@ -6,7 +6,7 @@ import { options } from "../../helpers";
 export function auth() {
   return async function (dispatch: any) {
     await axios.get(`${URL_API}/auth`, options())
-      .then(res => {
+      .then((res: any) => {
         dispatch({
           type: CURRENT_USER,
           payload: res.data.userData
