@@ -20,12 +20,12 @@ export function auth(navigate: any) {
   };
 }
 
-export function loginInner(email: string, password: string) {
+export function loginInner(formData: object, navigate: any) {
   return async function (dispatch: any) {
-    await axios.post(`${URL_API}/login-inner`, { email, password })
+    await axios.post(`${URL_API}/login-inner`, formData)
       .then((res: any) => {
         localStorage.setItem('userToken', res.data.token);
-        res.data.logged;
+        return res.data.logged && navigate(`/auth?token=${res.data.token}`);
       })
       .catch((e) => {
         dispatch({ 
@@ -45,9 +45,9 @@ export function loginGoogle() {
   };
 }
 
-export function signupInner(email: string, password: string) {
+export function signupInner(formData: object) {
   return async function () {
-    await axios.post(`${URL_API}/signup-inner`, { email, password })
+    await axios.post(`${URL_API}/signup-inner`, formData)
       .then((res: any) => {
         return res.data.logged;
       })

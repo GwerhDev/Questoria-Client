@@ -11,7 +11,7 @@ export const MenuUser = () => {
   }
 
   document.addEventListener('mouseup', function (e) {
-    const container: any  = $d('#user-menu');
+    const container: any = $d('#user-menu');
     if (!container?.contains(e.target)) {
       return (
         $d('#user-menu').style.display = 'none',

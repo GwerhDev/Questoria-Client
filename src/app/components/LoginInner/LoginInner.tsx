@@ -1,20 +1,25 @@
 import s from './LoginInner.module.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginInner } from '../../../middlewares/redux/actions/auth';
 
 export const LoginInner = () => {
-  const [username, setUsername] = useState('');
+  const dispatch: any = useDispatch();
+  const navigate: any = useNavigate();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleLogin(e: any) {
     e.preventDefault();
-    console.log(username, password);
+    const formData = { email, password }
+    dispatch(loginInner(formData, navigate));
   }
 
   return (
     <>
       <div className="form-group">
-        <input onInput={(e: any) => setUsername(e.target.value)} type="text" placeholder="Username" />
+        <input onInput={(e: any) => setEmail(e.target.value)} type="email" placeholder="Email" />
         <input onInput={(e: any) => setPassword(e.target.value)} type="password" placeholder="Password" />
       </div>
       <div>
