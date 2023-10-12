@@ -34,7 +34,7 @@ export const MenuUser = () => {
     <div className={s.menuContainer} id='user-menu'>
       <ul className={s.ulMenu} id='user-menu-ul'>
         <Link to={`/profile/${userToken}`} className='nolink' onClick={hideUserMenu}><li>Profile</li></Link>
-        <Link to="/my-courses" className='nolink' onClick={hideUserMenu}><li className='dashed-border-top'>My courses</li></Link>
+        <Link to="/my-courses" className='nolink' onClick={hideUserMenu}><li className='dashed-border-top'>My Courses</li></Link>
         <Link to="/account-settings" className='nolink' onClick={hideUserMenu}><li className='dashed-border-top'>Account Settings</li></Link>
         <li onClick={logout} className='dashed-border-top'>Logout</li>
       </ul>

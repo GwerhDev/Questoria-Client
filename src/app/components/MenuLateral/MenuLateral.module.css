@@ -1,13 +1,15 @@
 .container {
-  min-height: 100vh;
+  height: 100%;
   background-color: var(--dark-color);
   display: none;
-  position: absolute;
+  position: fixed;
   color: white;
   animation: width 2s forwards;
-  z-index: 999;
+  z-index: 98;
   padding: 3rem;
-  padding-top: 0;
+  padding-bottom: 0;
+  padding-top: 40px;
+  top: 0;
 }
 
 @keyframes width {

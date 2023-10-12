@@ -8,6 +8,7 @@ import MyCourses from '../pages/MyCourses';
 import AccountSettings from '../pages/AccountSettings';
 import { MenuLateral } from '../components/MenuLateral/MenuLateral';
 import { Navigator } from '../components/Navigator/Navigator';
+import { Footer } from '../components/Utils/Footer';
 
 function RoutesApp() {
   return (
@@ -27,6 +28,7 @@ function RoutesApp() {
           </Routes>
         </div>
       </div>
+      <Footer/>
     </main>
   )
 }

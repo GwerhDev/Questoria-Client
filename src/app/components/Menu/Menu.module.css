@@ -14,11 +14,11 @@
   margin-top: 3rem;
   font-size: large;
   text-align: left;
+  color: var(--app-color-orange)
 }
 
 .menu p:hover {
   cursor: default;
-  color: white;
 }
 
 .menu li {
