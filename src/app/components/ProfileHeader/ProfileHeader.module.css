@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headerImage {
+  background-color: var(--app-color-grey);
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 3rem;
+}
+
+.userdata {
+  position: absolute;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.imageContainer {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  border-radius: 100%;
+  background-color: var(--app-color-grey);
+  border: dotted var(--bg-color);
+  overflow: hidden;
+}
