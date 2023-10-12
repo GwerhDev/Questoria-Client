@@ -6,6 +6,7 @@
   position: absolute;
   color: white;
   animation: width 2s forwards;
+  z-index: 999;
 }
 
 @keyframes width {
