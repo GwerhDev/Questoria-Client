@@ -9,12 +9,12 @@ const Auth = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
-  const authToken: string | any  = params.get('token');
+  const userToken: string | any  = params.get('token');
 
   useEffect(() => {
-    setUserToken(authToken);
-    dispatch(auth(navigate));
-  }, [dispatch, authToken, navigate]);
+    setUserToken(userToken);
+    dispatch(auth(navigate, userToken));
+  }, [dispatch, userToken, navigate]);
 
   return (
     <div></div>
