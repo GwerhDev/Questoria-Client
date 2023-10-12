@@ -1,9 +1,44 @@
 .menu {
   padding: 0;
   margin: 0;
-  padding: 1rem;
+  padding-right: 3rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
   list-style: none;
-  justify-content: space-around;
+  display: none;
+  animation: opacity 3s forwards;
+}
+
+.menu p {
+  margin-top: 3rem;
+  font-size: large;
+  text-align: left;
+}
+
+.menu p:hover {
+  cursor: default;
+  color: white;
+}
+
+.menu li {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+
+.menu li:hover {
+  cursor: pointer;
+  background-color: var(--app-color-orange);
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

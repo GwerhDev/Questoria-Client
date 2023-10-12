@@ -5,6 +5,7 @@ import burgerMenuIcon from '../../../assets/icons/burger-menu.svg';
 export const MenuButton = () => {
   function showMenu() {
     $display("#lateral-menu");
+    $display('#menu');
   }
 
   return (

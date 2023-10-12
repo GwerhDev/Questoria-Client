@@ -85,3 +85,11 @@
 .routes-container {
   width: 100%;
 }
+
+.no-border {
+  border: none;
+}
+
+.dashed-border-top {
+  border-top: dashed 1px;
+}
