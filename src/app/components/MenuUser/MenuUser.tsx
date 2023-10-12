@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import s from './MenuUser.module.css'
-import { $display } from '../../../functions';
+import { $d, $display } from '../../../functions';
 
 export const MenuUser = () => {
   function logout() {
@@ -9,6 +9,17 @@ export const MenuUser = () => {
     window.location.href = '/';
     return null;
   }
+
+  document.addEventListener('mouseup', function (e) {
+    const container: any  = $d('#user-menu');
+    if (!container?.contains(e.target)) {
+      return (
+        $d('#user-menu').style.display = 'none',
+        $d('#user-menu-ul').style.display = 'none'
+      )
+    }
+    return;
+  });
 
   function hideUserMenu() {
     $display('#user-menu-ul');
