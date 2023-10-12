@@ -13,6 +13,8 @@ export const MenuLateral = () => {
   });
 
   return (
-    <div className={s.container} id='lateral-menu'>MenuLateral</div>
+    <div className={s.container} id='lateral-menu'>
+      
+    </div>
   )
 }
