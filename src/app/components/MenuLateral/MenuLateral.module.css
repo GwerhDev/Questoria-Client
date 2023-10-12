@@ -1,0 +1,18 @@
+.container {
+  width: 500px;
+  height: 100vh;
+  background-color: var(--dark-color);
+  display: none;
+  position: absolute;
+  color: white;
+  animation: width 2s forwards;
+}
+
+@keyframes width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 500px;
+  }
+}

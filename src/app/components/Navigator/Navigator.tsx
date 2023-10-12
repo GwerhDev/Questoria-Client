@@ -9,7 +9,7 @@ import { MenuUser } from '../MenuUser/MenuUser';
 import { useEffect } from 'react';
 import { getUserData } from '../../../middlewares/redux/actions/account';
 
-const Navigator = () => {
+export const Navigator = () => {
   const dispatch: any = useDispatch();
   const currentUser: any = useSelector((state: any) => state.currentUser);
 
@@ -33,5 +33,3 @@ const Navigator = () => {
     </div>
   )
 }
-
-export default Navigator; 
