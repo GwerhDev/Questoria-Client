@@ -39,6 +39,10 @@ body {
   overflow-x: hidden;
 }
 
+:link, :visited{
+  color: var(--bg-button-secundary);
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -56,6 +60,10 @@ input {
   background-color: transparent;
   font-size: 15px;
   padding: 1rem;
+  border: none;
+  border: solid 1px;
   border-radius: 3px;
+  border-color: var(--app-color-grey-soft);
   color: black;
 }
+

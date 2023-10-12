@@ -6,14 +6,41 @@
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   display: none;
+  animation: height 1s forwards;
+  overflow: hidden;
 }
 
 .ulMenu {
   list-style: none;
   padding: 0;
+  display: none;
+  animation: opacity 2s forwards;
+}
+
+.ulMenu li {
+  padding: .9rem;
+  border-top: 1px dashed;
 }
 
 .ulMenu li:hover {
   cursor: pointer;
-  color: var(--app-color-orange);
+  background-color: var(--app-color-orange);
+}
+
+@keyframes height {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 15rem;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

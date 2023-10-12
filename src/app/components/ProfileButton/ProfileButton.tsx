@@ -6,7 +6,9 @@ export const ProfileButton = () => {
   const { username, profilePic } = useSelector((state: any) => state.currentUser);
 
   function showMenu() {
-    return $display('#user-menu');
+    $display('#user-menu');
+    $display('#user-menu-ul');
+    return;
   }
 
   return (
