@@ -13,7 +13,7 @@ const Auth = () => {
 
   useEffect(() => {
     setUserToken(userToken);
-    dispatch(auth(navigate, userToken));
+    dispatch(auth(navigate));
   }, [dispatch, userToken, navigate]);
 
   return (

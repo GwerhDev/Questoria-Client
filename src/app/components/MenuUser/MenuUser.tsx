@@ -1,10 +1,11 @@
+import s from './MenuUser.module.css';
 import { Link } from 'react-router-dom';
-import s from './MenuUser.module.css'
 import { $d, $display } from '../../../functions';
-import { getUserToken } from '../../../middlewares/helpers';
+import { useSelector } from 'react-redux';
 
 export const MenuUser = () => {
-  const userToken: string | null = getUserToken();
+  const currrentUser = useSelector((state: any) => state.currentUser);
+  const { id } = currrentUser || {};
 
   function logout() {
     localStorage.removeItem('userToken');
@@ -33,7 +34,7 @@ export const MenuUser = () => {
   return (
     <div className={s.menuContainer} id='user-menu'>
       <ul className={s.ulMenu} id='user-menu-ul'>
-        <Link to={`/profile/${userToken}`} className='nolink' onClick={hideUserMenu}><li>Profile</li></Link>
+        <Link to={`/profile/${id}`} className='nolink' onClick={hideUserMenu}><li>Profile</li></Link>
         <Link to="/my-courses" className='nolink' onClick={hideUserMenu}><li className='dashed-border-top'>My Courses</li></Link>
         <Link to="/account-settings" className='nolink' onClick={hideUserMenu}><li className='dashed-border-top'>Account Settings</li></Link>
         <li onClick={logout} className='dashed-border-top'>Logout</li>

@@ -1,9 +1,11 @@
+import { CurrentCourse } from "../components/CurrentCourse/CurrentCourse";
 import { ProfileHeader } from "../components/ProfileHeader/ProfileHeader";
 
 const Profile = () => {
   return (
     <div>
-      <ProfileHeader/>
+      <ProfileHeader />
+      <CurrentCourse />
     </div>
   )
 }

@@ -1,0 +1,35 @@
+.container {
+  gap: 1rem;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unityContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.unityList {
+  gap: 1rem;
+  width: 100%;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+@media screen and (max-width: 600px) {
+  .unityList {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

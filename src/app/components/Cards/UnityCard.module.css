@@ -1,0 +1,20 @@
+.container {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--app-color-grey-soft);
+  text-align: left;
+  min-height: 200px;
+}
+
+.title {
+  gap: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.container:hover {
+  box-shadow: 0 0 10px var(--app-color-grey-soft);
+  cursor: pointer;
+}
