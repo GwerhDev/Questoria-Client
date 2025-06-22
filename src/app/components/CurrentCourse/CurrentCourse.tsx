@@ -1,5 +1,5 @@
 import s from "./CurrentCourse.module.css";
-import { faBook, faLandmark } from "@fortawesome/free-solid-svg-icons";
+import { faLandmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UnityCard } from "../Cards/UnityCard";
 

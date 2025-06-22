@@ -3,7 +3,7 @@ import s from './UnityCard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 
-export const UnityCard = (props) => {
+export const UnityCard = (props: any) => {
   const { unity } = props || {};
   const navigate = useNavigate();
 
