@@ -6,27 +6,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getCurrentAdventure } from "../../../middlewares/redux/actions/adventure";
 import { QuestCard } from "../Cards/QuestCard";
 import { Adventure } from "../../../models/interfaces";
+import { useParams } from 'react-router-dom';
 
 export const CurrentAdventure = () => {
   const dispatch = useDispatch();
-  const adventure: Adventure | null = useSelector((state: any) => state.adventure);
+  const currentAdventure: Adventure | null = useSelector((state: any) => state.currentAdventure);
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    dispatch(getCurrentAdventure());
-  }, [dispatch]);
+    if (id) {
+      dispatch(getCurrentAdventure(id));
+    }
+  }, [dispatch, id]);
 
   return (
     <div className={s.container}>
       <span className={s.title}>
         <FontAwesomeIcon size="3x" icon={faLandmark} />
-        <h1>{adventure?.name}</h1>
+        <h1>{currentAdventure?.name}</h1>
       </span>
 
       <span>Elige una misión para comenzar tu aventura histórica:</span>
 
       <div className={s.unityContainer}>
         <ul className={s.unityList}>
-          {adventure?.quest?.map((quest, index) => (
+          {currentAdventure?.quests?.map((quest, index) => (
             <li key={index}>
               <QuestCard quest={quest} />
             </li>

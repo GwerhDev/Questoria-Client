@@ -1,12 +1,13 @@
 export interface Adventure {
-  id: number;
+  _id: string;
   name: string;
-  unities: Quest[];
+  description: string;
+  quests: Quest[];
 }
 
 export interface Quest {
-  id: number;
-  name: string;
+  _id: string;
+  title: string;
   description: string;
 }
 

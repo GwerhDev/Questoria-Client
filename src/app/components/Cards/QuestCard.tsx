@@ -8,14 +8,14 @@ export const QuestCard = (props: any) => {
   const navigate = useNavigate();
 
   const handleQuest = () => {
-    navigate(`/course/${quest.id}`);
+    navigate(`/quest/${quest._id}`);
   }
 
   return (
     <article onClick={handleQuest} className={s.container}>
       <span className={s.title}>
         <FontAwesomeIcon size="2x" icon={faBook} />
-        <h2>{quest.name}</h2>
+        <h2>{quest.title}</h2>
       </span>
       <p>{quest.description}</p>
     </article>

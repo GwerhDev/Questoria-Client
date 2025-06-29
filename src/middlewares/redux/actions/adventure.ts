@@ -1,7 +1,7 @@
 import axios from "axios";
 import { URL_API } from "../../config";
 import { options } from "../../helpers";
-import { GET_ADVENTURES } from "../../misc/consts";
+import { CURRENT_ADVENTURE, GET_ADVENTURES } from "../../misc/consts";
 
 export const getAdventures = () => {
   return async (dispatch: any) => {
@@ -17,12 +17,12 @@ export const getAdventures = () => {
   };
 };
 
-export const getCurrentAdventure = () => {
+export const getCurrentAdventure = (id: string) => {
   return async (dispatch: any) => {
     try {
-      const response: any = await axios.get(`${URL_API}/adventure/current`, options());
+      const response: any = await axios.get(`${URL_API}/adventure/${id}`, options());
       dispatch({
-        type: GET_ADVENTURES,
+        type: CURRENT_ADVENTURE,
         payload: response.data,
       });
     } catch (error) {
