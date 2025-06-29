@@ -1,13 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Box, Typography, Button, Card, CardContent } from '@mui/material';
 
 const Dashboard: React.FC = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome to the admin and teacher dashboard.</p>
-      <Link to="/dashboard/create">Create Adventure and Quests</Link>
-    </div>
+    <Box>
+      <Card>
+        <CardContent>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Dashboard
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Welcome to the admin and teacher dashboard.
+          </Typography>
+          <Button variant="contained" component={Link} to="/dashboard/create">
+            Create Adventure and Quests
+          </Button>
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 

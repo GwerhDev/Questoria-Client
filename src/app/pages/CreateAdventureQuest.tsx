@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createAdventure } from '../../middlewares/redux/actions/adventure';
 import { createQuest } from '../../middlewares/redux/actions/quest';
+import { Box, Typography, TextField, Button } from '@mui/material';
 
 const CreateAdventureQuest: React.FC = () => {
   const dispatch: any = useDispatch();
@@ -26,54 +27,76 @@ const CreateAdventureQuest: React.FC = () => {
   };
 
   return (
-    <div>
+    <Box>
       {step === 1 ? (
-        <form onSubmit={handleAdventureSubmit}>
-          <h2>Create Adventure</h2>
-          <input
-            type="text"
-            placeholder="Adventure Name"
+        <Box component="form" onSubmit={handleAdventureSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Typography variant="h5" component="h2" gutterBottom>
+            Create Adventure
+          </Typography>
+          <TextField
+            label="Adventure Name"
+            variant="outlined"
+            fullWidth
             value={adventureData.name}
             onChange={(e) => setAdventureData({ ...adventureData, name: e.target.value })}
           />
-          <textarea
-            placeholder="Adventure Description"
+          <TextField
+            label="Adventure Description"
+            variant="outlined"
+            fullWidth
+            multiline
+            rows={4}
             value={adventureData.description}
             onChange={(e) => setAdventureData({ ...adventureData, description: e.target.value })}
           />
-          <button type="submit">Create Adventure</button>
-        </form>
+          <Button type="submit" variant="contained">
+            Create Adventure
+          </Button>
+        </Box>
       ) : (
-        <form onSubmit={handleQuestSubmit}>
-          <h2>Add Quest</h2>
-          <input
-            type="text"
-            placeholder="Quest Title"
+        <Box component="form" onSubmit={handleQuestSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Typography variant="h5" component="h2" gutterBottom>
+            Add Quest
+          </Typography>
+          <TextField
+            label="Quest Title"
+            variant="outlined"
+            fullWidth
             value={questData.title}
             onChange={(e) => setQuestData({ ...questData, title: e.target.value })}
           />
-          <textarea
-            placeholder="Quest Description"
+          <TextField
+            label="Quest Description"
+            variant="outlined"
+            fullWidth
+            multiline
+            rows={4}
             value={questData.description}
             onChange={(e) => setQuestData({ ...questData, description: e.target.value })}
           />
-          <input
-            type="text"
-            placeholder="Reward ID"
+          <TextField
+            label="Reward ID"
+            variant="outlined"
+            fullWidth
             value={questData.rewardId}
             onChange={(e) => setQuestData({ ...questData, rewardId: e.target.value })}
           />
-          <input
+          <TextField
+            label="Level Requirement"
+            variant="outlined"
+            fullWidth
             type="number"
-            placeholder="Level Requirement"
             value={questData.levelRequirement}
             onChange={(e) => setQuestData({ ...questData, levelRequirement: parseInt(e.target.value) })}
           />
-          <button type="submit">Add Quest</button>
-        </form>
+          <Button type="submit" variant="contained">
+            Add Quest
+          </Button>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 };
 
 export default CreateAdventureQuest;
+

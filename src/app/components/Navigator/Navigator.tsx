@@ -6,7 +6,7 @@ import { MenuButton } from '../Buttons/MenuButton';
 import { AuthButton } from '../Buttons/AuthButton';
 import { AccountButton } from '../Buttons/AccountButton';
 import { getUserData } from '../../../middlewares/redux/actions/account';
-import { faBagShopping, faHome, faIdBadge, faScroll, faShield, faShop, faShoppingBag, faSuitcase } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faHome, faScroll, faShield, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigator = () => {
   const dispatch: any = useDispatch();
@@ -24,11 +24,16 @@ export const Navigator = () => {
         </section>
         <section className={s.menuSection}>
           <IconButton icon={faHome} to={"/"} title="Inicio" />
-          <IconButton icon={faScroll} to={"/adventures"} title="Aventuras" />
-          <IconButton icon={faShield} to={"/clan"} title="Clan" />
+          {
+            currentUser &&
+            <>
+              <IconButton icon={faScroll} to={"/adventures"} title="Aventuras" />
+              <IconButton icon={faShield} to={"/clan"} title="Clan" />
+            </>
+          }
           <IconButton icon={faBagShopping} to={"/shop"} title={"Tienda"} />
           {(currentUser?.role === "admin" || currentUser?.role === "teacher") && (
-            <IconButton icon={faIdBadge} to={"/dashboard"} title={"Dashboard"} />
+            <IconButton icon={faTableColumns} to={"/dashboard"} title={"Dashboard"} />
           )}
         </section>
         <section className={s.appSection}>
