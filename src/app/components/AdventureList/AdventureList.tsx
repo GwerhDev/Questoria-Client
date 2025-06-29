@@ -12,8 +12,8 @@ export const AdventureList = () => {
 
   return (
     <ul>
-      {adventures.map((adventure: any) => (
-        <li key={adventure.id}>{adventure.name}</li>
+      {adventures.map((adventure: any, index: number) => (
+        <li key={index}>{adventure.name}</li>
       ))}
     </ul>
   );
