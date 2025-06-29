@@ -6,6 +6,8 @@ import Auth from '../pages/Auth';
 import Profile from '../pages/Profile';
 import Adventures from '../pages/Adventures';
 import AccountSettings from '../pages/AccountSettings';
+import Dashboard from '../pages/Dashboard';
+import CreateAdventureQuest from '../pages/CreateAdventureQuest';
 import { LateralCanvas } from '../components/Canvas/LateralCanvas';
 import { Footer } from '../components/Utils/Footer';
 import { Navigator } from '../components/Navigator/Navigator';
@@ -35,6 +37,8 @@ function RoutesApp() {
               <Route path='/profile/:id' element={<Profile />} />
               <Route path='/adventures' element={<Adventures />} />
               <Route path='/account-settings' element={<AccountSettings />} />
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/dashboard/create' element={<CreateAdventureQuest />} />
             </Routes>
           </div>
         </div>

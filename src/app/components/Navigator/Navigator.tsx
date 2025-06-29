@@ -26,7 +26,10 @@ export const Navigator = () => {
           <IconButton icon={faHome} to={"/"} title="Inicio" />
           <IconButton icon={faScroll} to={"/adventures"} title="Aventuras" />
           <IconButton icon={faShield} to={"/clan"} title="Clan" />
-          <IconButton icon={faBagShopping} to={"/shop"} title="Tienda" />
+          <IconButton icon={faBagShopping} to={"/shop"} title={"Tienda"} />
+          {(currentUser?.role === "admin" || currentUser?.role === "teacher") && (
+            <IconButton icon={faIdBadge} to={"/dashboard"} title={"Dashboard"} />
+          )}
         </section>
         <section className={s.appSection}>
           <MenuButton />

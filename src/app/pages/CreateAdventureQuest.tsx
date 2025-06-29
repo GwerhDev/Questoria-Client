@@ -1,200 +1,78 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Box, Heading, Button, Container, VStack, Input, Textarea } from '@chakra-ui/react';
-import { useToast } from '@chakra-ui/toast';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { createAdventure } from '../../middlewares/redux/actions/adventure';
 import { createQuest } from '../../middlewares/redux/actions/quest';
-import { CLEAR_ADVENTURE_CREATION_STATE } from '../../middlewares/misc/consts';
-import { AppDispatch, RootState } from '../../middlewares/redux/store';
 
-const CreateAdventureForm = ({ isLoading, onSubmit }) => {
-  const [adventureName, setAdventureName] = useState('');
-  const [adventureDescription, setAdventureDescription] = useState('');
+const CreateAdventureQuest: React.FC = () => {
+  const dispatch: any = useDispatch();
+  const [step, setStep] = useState(1);
+  const [adventureId, setAdventureId] = useState('');
+  const [adventureData, setAdventureData] = useState({ name: '', description: '' });
+  const [questData, setQuestData] = useState({ title: '', description: '', rewardId: '', levelRequirement: 0 });
 
-  const handleSubmit = () => {
-    onSubmit({ name: adventureName, description: adventureDescription });
+  const handleAdventureSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const response = await dispatch(createAdventure(adventureData));
+    if (response) {
+      setAdventureId(response.adventureId);
+      setStep(2);
+    }
+  };
+
+  const handleQuestSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await dispatch(createQuest({ ...questData, adventureId }));
+    // Optionally, redirect or show a success message
   };
 
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="lg">
-      <Heading as="h2" size="lg" mb={4}>
-        Crear Nueva Aventura
-      </Heading>
-      <VStack spacing={4}>
-        <Input
-          placeholder="Nombre de la Aventura"
-          value={adventureName}
-          onChange={(e) => setAdventureName(e.target.value)}
-        />
-        <Textarea
-          placeholder="Descripción de la Aventura"
-          value={adventureDescription}
-          onChange={(e) => setAdventureDescription(e.target.value)}
-          rows={4}
-        />
-        <Button
-          colorScheme="blue"
-          onClick={handleSubmit}
-          isLoading={isLoading}
-          loadingText="Creando..."
-          w="full"
-        >
-          Crear Aventura
-        </Button>
-      </VStack>
-    </Box>
-  );
-};
-
-const CreateQuestForm = ({ adventureId, adventureName, isLoading, onSubmit }) => {
-  const [questTitle, setQuestTitle] = useState('');
-  const [questDescription, setQuestDescription] = useState('');
-  const [rewardId, setRewardId] = useState('');
-  const [levelRequirement, setLevelRequirement] = useState(1);
-
-  const handleSubmit = () => {
-    onSubmit({ title: questTitle, description: questDescription, rewardId, levelRequirement, adventureId });
-    setQuestTitle('');
-    setQuestDescription('');
-    setRewardId('');
-    setLevelRequirement(1);
-  };
-
-  return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="lg">
-      <Heading as="h2" size="lg" mb={4}>
-        Añadir Quests a la Aventura: {adventureName}
-      </Heading>
-      <VStack spacing={4}>
-        <Input
-          placeholder="Título de la Quest"
-          value={questTitle}
-          onChange={(e) => setQuestTitle(e.target.value)}
-        />
-        <Textarea
-          placeholder="Descripción de la Quest"
-          value={questDescription}
-          onChange={(e) => setQuestDescription(e.target.value)}
-          rows={4}
-        />
-        <Input
-          placeholder="ID de Recompensa"
-          value={rewardId}
-          onChange={(e) => setRewardId(e.target.value)}
-        />
-        <Input
-          placeholder="Nivel Requerido"
-          type="number"
-          value={levelRequirement}
-          onChange={(e) => setLevelRequirement(Number(e.target.value))}
-        />
-        <Button
-          colorScheme="green"
-          onClick={handleSubmit}
-          isLoading={isLoading}
-          loadingText="Añadiendo..."
-          w="full"
-        >
-          Añadir Quest
-        </Button>
-      </VStack>
-    </Box>
-  );
-};
-
-const CreateAdventureQuest = () => {
-  const dispatch: AppDispatch = useDispatch();
-  const toast = useToast();
-  const { loading: adventureLoading, error: adventureError, adventureId, success: adventureSuccess } = useSelector((state: RootState) => state.adventureCreation);
-  const { loading: questLoading, error: questError, success: questSuccess } = useSelector((state: RootState) => state.questCreation);
-  const [adventureName, setAdventureName] = useState('');
-
-  const handleCreateAdventure = useCallback(async (data) => {
-    setAdventureName(data.name);
-    await dispatch(createAdventure(data));
-  }, [dispatch]);
-
-  const handleCreateQuest = useCallback(async (data) => {
-    await dispatch(createQuest(data));
-  }, [dispatch]);
-
-  const handleFinish = useCallback(() => {
-    dispatch({ type: CLEAR_ADVENTURE_CREATION_STATE });
-    setAdventureName('');
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (adventureSuccess) {
-      toast({
-        title: "Aventura creada.",
-        description: "Ahora puedes añadir quests a esta aventura.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  }, [adventureSuccess, toast]);
-
-  useEffect(() => {
-    if (questSuccess) {
-      toast({
-        title: "Quest añadida.",
-        description: "La quest ha sido añadida exitosamente.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  }, [questSuccess, toast]);
-
-  useEffect(() => {
-    if (adventureError) {
-      toast({
-        title: "Error al crear aventura.",
-        description: adventureError,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  }, [adventureError, toast]);
-
-  useEffect(() => {
-    if (questError) {
-      toast({
-        title: "Error al añadir quest.",
-        description: questError,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  }, [questError, toast]);
-
-  return (
-    <Container maxW="container.lg" py={10}>
-      <VStack spacing={8} align="stretch">
-        <Heading as="h1" size="xl">
-          Crear Aventura y Quests
-        </Heading>
-
-        {!adventureId ? (
-          <CreateAdventureForm isLoading={adventureLoading} onSubmit={handleCreateAdventure} />
-        ) : (
-          <VStack spacing={8} align="stretch">
-            <CreateQuestForm adventureId={adventureId} adventureName={adventureName} isLoading={questLoading} onSubmit={handleCreateQuest} />
-            <Button
-              variant="outline"
-              colorScheme="red"
-              onClick={handleFinish}
-              w="full"
-            >
-              Terminar y Crear Nueva Aventura
-            </Button>
-          </VStack>
-        )}
-      </VStack>
-    </Container>
+    <div>
+      {step === 1 ? (
+        <form onSubmit={handleAdventureSubmit}>
+          <h2>Create Adventure</h2>
+          <input
+            type="text"
+            placeholder="Adventure Name"
+            value={adventureData.name}
+            onChange={(e) => setAdventureData({ ...adventureData, name: e.target.value })}
+          />
+          <textarea
+            placeholder="Adventure Description"
+            value={adventureData.description}
+            onChange={(e) => setAdventureData({ ...adventureData, description: e.target.value })}
+          />
+          <button type="submit">Create Adventure</button>
+        </form>
+      ) : (
+        <form onSubmit={handleQuestSubmit}>
+          <h2>Add Quest</h2>
+          <input
+            type="text"
+            placeholder="Quest Title"
+            value={questData.title}
+            onChange={(e) => setQuestData({ ...questData, title: e.target.value })}
+          />
+          <textarea
+            placeholder="Quest Description"
+            value={questData.description}
+            onChange={(e) => setQuestData({ ...questData, description: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Reward ID"
+            value={questData.rewardId}
+            onChange={(e) => setQuestData({ ...questData, rewardId: e.target.value })}
+          />
+          <input
+            type="number"
+            placeholder="Level Requirement"
+            value={questData.levelRequirement}
+            onChange={(e) => setQuestData({ ...questData, levelRequirement: parseInt(e.target.value) })}
+          />
+          <button type="submit">Add Quest</button>
+        </form>
+      )}
+    </div>
   );
 };
 

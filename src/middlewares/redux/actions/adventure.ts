@@ -30,3 +30,14 @@ export const getCurrentAdventure = () => {
     }
   };
 };
+
+export const createAdventure = (adventureData: any) => {
+  return async (dispatch: any) => {
+    try {
+      const response: any = await axios.post(`${URL_API}/adventure/create`, adventureData, options());
+      return response.data;
+    } catch (error) {
+      console.error("Error creating adventure:", error);
+    }
+  };
+};
