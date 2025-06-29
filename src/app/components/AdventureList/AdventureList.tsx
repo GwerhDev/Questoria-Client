@@ -1,6 +1,8 @@
+import s from "./AdventureList.module.css";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAdventures } from '../../../middlewares/redux/actions/adventure';
+import { AdventureCard } from "../Cards/AdventureCard";
 
 export const AdventureList = () => {
   const dispatch = useDispatch();
@@ -11,9 +13,11 @@ export const AdventureList = () => {
   }, [dispatch]);
 
   return (
-    <ul>
-      {adventures.map((adventure: any, index: number) => (
-        <li key={index}>{adventure.name}</li>
+    <ul className={s.container}>
+      {adventures?.map((adventure, index) => (
+        <li key={index}>
+          <AdventureCard adventure={adventure} />
+        </li>
       ))}
     </ul>
   );

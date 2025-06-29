@@ -26,7 +26,7 @@ export const CurrentAdventure = () => {
 
       <div className={s.unityContainer}>
         <ul className={s.unityList}>
-          {adventure?.quest.map((quest, index) => (
+          {adventure?.quest?.map((quest, index) => (
             <li key={index}>
               <QuestCard quest={quest} />
             </li>
