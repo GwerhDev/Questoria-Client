@@ -1,0 +1,16 @@
+.container {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  color: var(--app-color-orange);
+  border-color: var(--app-color-orange);
+}
+
+.container:hover {
+  color: var(--app-color-orange-hover);
+}
+

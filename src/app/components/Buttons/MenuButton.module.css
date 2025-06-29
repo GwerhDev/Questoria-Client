@@ -1,0 +1,12 @@
+.container {
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container:hover {
+  color: var(--app-color-orange-hover);
+}

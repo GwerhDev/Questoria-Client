@@ -1,15 +1,14 @@
 .container {
+  top: 0;
+  z-index: 98;
   height: 100%;
-  background-color: var(--dark-color);
+  padding: 2rem;
   display: none;
+  overflow: auto;
   position: fixed;
   color: white;
   animation: width 2s forwards;
-  z-index: 98;
-  padding: 3rem;
-  padding-bottom: 0;
-  padding-top: 40px;
-  top: 0;
+  background-color: var(--dark-color);
 }
 
 @keyframes width {

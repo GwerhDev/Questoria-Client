@@ -8,10 +8,7 @@
 .App {
   margin: 0;
   padding: 0;
-  padding-left: 3rem;
-  padding-right: 3rem;
   width: 100vw;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -98,4 +95,13 @@
 
 .dashed-border-top {
   border-top: dashed 1px;
+}
+
+.viewport {
+  display: flex;
+}
+
+.lateral-canvas-container {
+  width: 120px;
+  height: 100%;
 }

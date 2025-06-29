@@ -6,13 +6,13 @@ const Login = () => {
   return (
     <div className="auth-container">
       <form className="auth-form">
-        <h2>Login</h2>
+        <h2>Iniciar sesión</h2>
         <LoginInner />
-        Login using:
+        Iniciar sesión usando:
         <LoginGoogle />
         <div className="divider"/>
         <span className="auth-form-text">
-          Don't have an account yet? Sign up here and get started with GustavoEduca today! <Link to="/register">Register</Link>
+          ¿Aún no tienes una cuenta? ¡Sign up here and get started with GustavoEduca today! <Link to="/register">Register</Link>
         </span>
       </form>
     </div>

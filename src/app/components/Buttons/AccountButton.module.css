@@ -1,0 +1,21 @@
+.container {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  border: solid;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--app-color-orange);
+  border-color: var(--app-color-orange);
+  background-color: transparent;
+}
+
+.container:hover {
+  border-color: var(--app-color-orange-hover);
+}
+

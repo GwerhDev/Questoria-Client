@@ -1,7 +1,14 @@
-import { CURRENT_USER, GET_USER_DATA } from "../../misc/consts";
+import { CURRENT_ADVENTURE, CURRENT_USER, GET_ADVENTURES, GET_USER_DATA, SET_MENU_TYPE, SET_USER_ACTION, SET_MODAL_OPEN } from "../../misc/consts";
 
 const initialState: any = {
-  currentUser: null
+  currentUser: null,
+  adventures: [],
+  currentAdventure: [],
+  ui: {
+    menuType: null,
+    userAction: null,
+    isModalOpen: false,
+  },
 }
 
 export default function rootReducer(state: any = initialState, action: any) {
@@ -15,6 +22,40 @@ export default function rootReducer(state: any = initialState, action: any) {
       return {
         ...state,
         currentUser: action.payload
+      };
+    case GET_ADVENTURES:
+      return {
+        ...state,
+        adventures: action.payload
+      };
+    case CURRENT_ADVENTURE:
+      return {
+        ...state,
+        currentAdventure: action.payload
+      };
+    case SET_MENU_TYPE:
+      return {
+        ...state,
+        ui: {
+          ...state.ui,
+          menuType: action.payload
+        },
+      };
+    case SET_USER_ACTION:
+      return {
+        ...state,
+        ui: {
+          ...state.ui,
+          userAction: action.payload
+        },
+      };
+    case SET_MODAL_OPEN:
+      return {
+        ...state,
+        ui: {
+          ...state.ui,
+          isModalOpen: action.payload
+        },
       };
     default:
       return { ...state };

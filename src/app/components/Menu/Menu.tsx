@@ -1,15 +1,21 @@
 import s from './Menu.module.css';
 
-export const Menu = () => {
+export const Menu = (props: any) => {
+  const { type } = props || {};
+
   return (
     <ul className={s.menu} id='menu'>
-      <p>General</p>
-      <li>News</li>
-      <li className='dashed-border-top'>Courses</li>
-      <li className='dashed-border-top'>Certifications</li>
-      <p>About</p>
-      <li>Who is Gustavo Fernández</li>
-      <li className='dashed-border-top'>Our Mission</li>
+      {
+        type === "info" &&
+        <>
+          <p className={s.title}>General</p>
+          <li>Noticias</li>
+          <li className='dashed-border-top'>Certificaciones</li>
+          <p className={s.title}>Acerca de</p>
+          <li>¿Quiénes somos?</li>
+          <li className='dashed-border-top'>Nuestra misión</li>
+        </>
+      }
     </ul>
   )
 }

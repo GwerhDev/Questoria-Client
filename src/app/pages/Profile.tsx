@@ -1,11 +1,11 @@
-import { CurrentCourse } from "../components/CurrentCourse/CurrentCourse";
+import { CurrentAdventure } from "../components/CurrentAdventure/CurrentAdventure";
 import { ProfileHeader } from "../components/ProfileHeader/ProfileHeader";
 
 const Profile = () => {
   return (
     <div>
       <ProfileHeader />
-      <CurrentCourse />
+      <CurrentAdventure />
     </div>
   )
 }

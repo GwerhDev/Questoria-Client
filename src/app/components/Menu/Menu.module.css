@@ -1,28 +1,24 @@
 .menu {
   padding: 0;
   margin: 0;
-  padding-right: 3rem;
   display: flex;
+  list-style: none;
   flex-direction: column;
   align-items: flex-start;
-  list-style: none;
-  display: none;
   animation: opacity 3s forwards;
 }
 
-.menu p {
-  margin-top: 3rem;
+.title {
   font-size: large;
   text-align: left;
-  color: var(--app-color-orange)
+  color: var(--app-color-orange);
 }
 
-.menu p:hover {
+.title:hover {
   cursor: default;
 }
 
 .menu li {
-  width: 100%;
   padding: 1rem;
   text-align: left;
   white-space: nowrap;

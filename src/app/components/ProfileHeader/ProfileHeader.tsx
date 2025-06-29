@@ -9,9 +9,10 @@ export const ProfileHeader = () => {
       <div className={s.headerImage}>
         <div className={s.userdata}>
           <div className={s.imageContainer}>
-            <img src={ currentUser?.profilePic ? currentUser.profilePic : null } alt="" width="100%" />
+            <img src={currentUser?.profilePic ? currentUser.profilePic : null} alt="" width="100%" />
           </div>
-          <h2>Mr(s) { currentUser?.username }</h2>
+          <h2>{currentUser?.username}</h2>
+          <p>{currentUser?.role}</p>
         </div>
       </div>
     </div>

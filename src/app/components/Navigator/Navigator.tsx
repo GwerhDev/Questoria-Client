@@ -1,13 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { ActionButton } from '../ActionButton/ActionButton';
-import { Language } from '../Language/Language';
-import { MenuButton } from '../MenuButton/MenuButton';
-import { ProfileButton } from '../ProfileButton/ProfileButton';
 import s from './Navigator.module.css';
-import { AuthButton } from '../AuthButton/AuthButton';
-import { MenuUser } from '../MenuUser/MenuUser';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { IconButton } from '../Buttons/IconButton';
+import { MenuButton } from '../Buttons/MenuButton';
+import { AuthButton } from '../Buttons/AuthButton';
+import { AccountButton } from '../Buttons/AccountButton';
 import { getUserData } from '../../../middlewares/redux/actions/account';
+import { faBagShopping, faHome, faIdBadge, faScroll, faShield, faShop, faShoppingBag, faSuitcase } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigator = () => {
   const dispatch: any = useDispatch();
@@ -20,16 +19,19 @@ export const Navigator = () => {
   return (
     <div className={s.container}>
       <nav className={s.navigator}>
-        <section className={s.menuSection}>
-          <MenuButton />
-          <ActionButton />
-          <Language />
+        <section className={s.accountSection}>
+          {currentUser ? <AccountButton /> : <AuthButton />}
         </section>
-        <section>
-          {currentUser ? <ProfileButton /> : <AuthButton />}
+        <section className={s.menuSection}>
+          <IconButton icon={faHome} to={"/"} title="Inicio" />
+          <IconButton icon={faScroll} to={"/adventures"} title="Aventuras" />
+          <IconButton icon={faShield} to={"/clan"} title="Clan" />
+          <IconButton icon={faBagShopping} to={"/shop"} title="Tienda" />
+        </section>
+        <section className={s.appSection}>
+          <MenuButton />
         </section>
       </nav>
-      <MenuUser />
     </div>
   )
 }

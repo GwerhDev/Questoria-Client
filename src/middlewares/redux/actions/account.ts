@@ -1,6 +1,6 @@
 import axios from "axios";
-import { options } from "../../helpers";
 import { URL_API } from "../../config";
+import { options } from "../../helpers";
 import { GET_USER_DATA } from "../../misc/consts";
 
 export function getUserData() {
