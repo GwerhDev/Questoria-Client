@@ -34,6 +34,7 @@ export const getCurrentAdventure = (id: string) => {
 };
 
 export const createAdventure = (adventureData: Omit<Adventure, '_id'>) => {
+  // @ts-ignore
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.post<Adventure>(`${URL_API}/adventure/create`, adventureData, options());
