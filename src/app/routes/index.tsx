@@ -18,28 +18,20 @@ import { CircularButtonMenu } from '../components/Buttons/CircularButtonMenu/Cir
 import { ModalCanvas } from '../components/Canvas/ModalCanvas';
 import { ExperienceBar } from '../components/ExperienceBar/ExperienceBar';
 import { RootState } from '../../middlewares/redux/reducer';
-
-interface ProtectedRouteProps {
-  children: JSX.Element;
-}
-
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const currentUser = useSelector((state: RootState) => state.currentUser);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/login');
-    }
-  }, [currentUser, navigate]);
-
-  return currentUser ? children : null;
-};
+import { getUserToken } from '../../middlewares/helpers';
 
 function RoutesApp() {
   const currentUser = useSelector((state: RootState) => state.currentUser);
   const location = useLocation();
   const hideCircularButton = location.pathname.startsWith('/profile') || location.pathname.startsWith('/dashboard');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userToken = getUserToken();
+    if (!userToken) {
+      navigate('/login');
+    }
+  }, [currentUser, navigate]);
 
   return (
     <div className="viewport">
@@ -55,12 +47,12 @@ function RoutesApp() {
               <div className='routes-container'>
                 <Routes>
                   <Route path='/' element={<Home />} />
-                  <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-                  <Route path='/adventures' element={<ProtectedRoute><Adventures /></ProtectedRoute>} />
-                  <Route path='/adventures/:id' element={<ProtectedRoute><AdventureDetails /></ProtectedRoute>} />
-                  <Route path='/account-settings' element={<ProtectedRoute><AccountSettings /></ProtectedRoute>} />
-                  <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-                  <Route path='/dashboard/create' element={<ProtectedRoute><CreateAdventureQuest /></ProtectedRoute>} />
+                  <Route path='/profile/:id' element={<Profile />} />
+                  <Route path='/adventures' element={<Adventures />} />
+                  <Route path='/adventures/:id' element={<AdventureDetails />} />
+                  <Route path='/account-settings' element={<AccountSettings />} />
+                  <Route path='/dashboard' element={<Dashboard />} />
+                  <Route path='/dashboard/create' element={<CreateAdventureQuest />} />
                 </Routes>
               </div>
             </div>
