@@ -1,4 +1,6 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -15,6 +17,24 @@ import { Navigator } from '../components/Navigator/Navigator';
 import { CircularButtonMenu } from '../components/Buttons/CircularButtonMenu/CircularButtonMenu';
 import { ModalCanvas } from '../components/Canvas/ModalCanvas';
 import { ExperienceBar } from '../components/ExperienceBar/ExperienceBar';
+import { RootState } from '../../middlewares/redux/reducer';
+
+interface ProtectedRouteProps {
+  children: JSX.Element;
+}
+
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+  const currentUser = useSelector((state: RootState) => state.currentUser);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigate('/login');
+    }
+  }, [currentUser, navigate]);
+
+  return currentUser ? children : null;
+};
 
 function RoutesApp() {
   const location = useLocation();
@@ -34,12 +54,12 @@ function RoutesApp() {
               <Route path='/auth' element={<Auth />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
-              <Route path='/profile/:id' element={<Profile />} />
-              <Route path='/adventures' element={<Adventures />} />
-              <Route path='/adventures/:id' element={<AdventureDetails />} />
-              <Route path='/account-settings' element={<AccountSettings />} />
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/dashboard/create' element={<CreateAdventureQuest />} />
+              <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+              <Route path='/adventures' element={<ProtectedRoute><Adventures /></ProtectedRoute>} />
+              <Route path='/adventures/:id' element={<ProtectedRoute><AdventureDetails /></ProtectedRoute>} />
+              <Route path='/account-settings' element={<ProtectedRoute><AccountSettings /></ProtectedRoute>} />
+              <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path='/dashboard/create' element={<ProtectedRoute><CreateAdventureQuest /></ProtectedRoute>} />
             </Routes>
           </div>
         </div>

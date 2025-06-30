@@ -11,3 +11,4 @@ export const GET_ADVENTURES: string = "GET_ADVENTURES";
 export const SET_MENU_TYPE: string = "SET_MENU_TYPE";
 export const SET_USER_ACTION: string = "SET_USER_ACTION";
 export const SET_MODAL_OPEN: string = "SET_MODAL_OPEN";
+export const LOGOUT_USER: string = "LOGOUT_USER";

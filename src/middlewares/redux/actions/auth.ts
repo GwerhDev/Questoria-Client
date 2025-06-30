@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_API } from "../../config";
-import { CURRENT_USER, ERROR } from "../../misc/consts";
+import { CURRENT_USER, ERROR, LOGOUT_USER } from "../../misc/consts";
 import { options } from "../../helpers";
 import { Dispatch } from "redux";
 import { User } from "../../../models/interfaces";
@@ -70,5 +70,15 @@ export function signupGoogle() {
         console.error(e);
         return;
       });
+  };
+}
+
+export function logout(navigate: (path: string) => void) {
+  return function (dispatch: Dispatch) {
+    localStorage.removeItem('userToken');
+    dispatch({
+      type: LOGOUT_USER,
+    });
+    navigate('/login');
   };
 }
