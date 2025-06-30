@@ -14,13 +14,12 @@
 .barBackground {
   width: 100%;
   height: .7rem;
-  background-color: #555;
+  background-color: var(--app-secondary-color);
   overflow: hidden;
 }
 
 .barFill {
   height: 100%;
-  background-color: var(--app-secondary-color);
   transition: width 0.5s ease-in-out;
 }
 
