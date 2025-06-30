@@ -37,37 +37,45 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 };
 
 function RoutesApp() {
+  const currentUser = useSelector((state: RootState) => state.currentUser);
   const location = useLocation();
   const hideCircularButton = location.pathname.startsWith('/profile') || location.pathname.startsWith('/dashboard');
 
   return (
     <div className="viewport">
-      <div className='lateral-canvas-container'>
-        <Navigator />
-      </div>
-      <main className='App'>
-        <div className='main-container'>
-          <LateralCanvas />
-          <div className='routes-container'>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/auth' element={<Auth />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
-              <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-              <Route path='/adventures' element={<ProtectedRoute><Adventures /></ProtectedRoute>} />
-              <Route path='/adventures/:id' element={<ProtectedRoute><AdventureDetails /></ProtectedRoute>} />
-              <Route path='/account-settings' element={<ProtectedRoute><AccountSettings /></ProtectedRoute>} />
-              <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-              <Route path='/dashboard/create' element={<ProtectedRoute><CreateAdventureQuest /></ProtectedRoute>} />
-            </Routes>
+      {
+        currentUser &&
+        <>
+          <div className='lateral-canvas-container'>
+            <Navigator />
           </div>
-        </div>
-        <Footer />
-      </main>
-      {!hideCircularButton && <CircularButtonMenu />}
-      <ModalCanvas />
-      <ExperienceBar />
+          <main className='App'>
+            <div className='main-container'>
+              <LateralCanvas />
+              <div className='routes-container'>
+                <Routes>
+                  <Route path='/' element={<Home />} />
+                  <Route path='/profile/:id' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                  <Route path='/adventures' element={<ProtectedRoute><Adventures /></ProtectedRoute>} />
+                  <Route path='/adventures/:id' element={<ProtectedRoute><AdventureDetails /></ProtectedRoute>} />
+                  <Route path='/account-settings' element={<ProtectedRoute><AccountSettings /></ProtectedRoute>} />
+                  <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                  <Route path='/dashboard/create' element={<ProtectedRoute><CreateAdventureQuest /></ProtectedRoute>} />
+                </Routes>
+              </div>
+            </div>
+            <Footer />
+            {!hideCircularButton && <CircularButtonMenu />}
+            <ModalCanvas />
+            <ExperienceBar />
+          </main>
+        </>
+      }
+      <Routes>
+        <Route path='/auth' element={<Auth />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+      </Routes>
     </div>
   )
 }
