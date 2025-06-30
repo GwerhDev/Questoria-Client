@@ -20,8 +20,16 @@
 
 .barFill {
   height: 100%;
-  background-color: var(--app-secondary-color); /* Green fill */
+  background-color: var(--app-secondary-color);
   transition: width 0.5s ease-in-out;
+}
+
+.teacherBarFill {
+  background-color: var(--app-color-orange);
+}
+
+.adminBarFill {
+  background-color: goldenrod;
 }
 
 .text {
