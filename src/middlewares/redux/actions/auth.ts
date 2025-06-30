@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_API } from "../../config";
-import { CURRENT_USER, ERROR, LOGOUT_USER } from "../../misc/consts";
+import { CURRENT_USER, ERROR } from "../../misc/consts";
 import { options } from "../../helpers";
 import { Dispatch } from "redux";
 import { User } from "../../../models/interfaces";
@@ -13,10 +13,11 @@ export function auth(navigate: (path: string) => void) {
           type: CURRENT_USER,
           payload: res.data.userData
         });
-        return res.data.logged && navigate(`/profile/${res.data.userData.id}`);
+        return res.data.logged && navigate("/");
       })
       .catch((e: object) => {
         console.error(e);
+        navigate("/login");
         return;
       });
   };
@@ -30,9 +31,9 @@ export function loginInner(formData: object, navigate: (path: string) => void) {
         return res.data.logged && navigate(`/auth?token=${res.data.token}`);
       })
       .catch((e: any) => {
-        dispatch({ 
-          type: ERROR, 
-          payload: e.response.data.message 
+        dispatch({
+          type: ERROR,
+          payload: e.response.data.message
         });
         console.error(e.code);
         return;
@@ -74,10 +75,6 @@ export function signupGoogle() {
 }
 
 export function logout() {
-  return function (dispatch: Dispatch) {
-    localStorage.removeItem('userToken');
-    dispatch({
-      type: LOGOUT_USER,
-    });
-  };
+  localStorage.removeItem('userToken');
+  window.location.href = "/login";
 }

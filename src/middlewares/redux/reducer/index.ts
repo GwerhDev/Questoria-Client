@@ -1,5 +1,5 @@
 import { Adventure, User } from "../../../models/interfaces";
-import { CURRENT_ADVENTURE, CURRENT_USER, GET_ADVENTURES, GET_USER_DATA, SET_MENU_TYPE, SET_USER_ACTION, SET_MODAL_OPEN, LOGOUT_USER } from "../../misc/consts";
+import { CURRENT_ADVENTURE, CURRENT_USER, GET_ADVENTURES, GET_USER_DATA, SET_MENU_TYPE, SET_USER_ACTION, SET_MODAL_OPEN } from "../../misc/consts";
 
 export interface RootState {
   currentUser: User | null;
@@ -69,8 +69,6 @@ export default function rootReducer(state: RootState = initialState, action: any
           isModalOpen: action.payload
         },
       };
-    case LOGOUT_USER:
-      return initialState;
     default:
       return { ...state };
   }
