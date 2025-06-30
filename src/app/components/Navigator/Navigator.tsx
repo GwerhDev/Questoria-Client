@@ -1,18 +1,13 @@
 import s from './Navigator.module.css';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { IconButton } from '../Buttons/IconButton';
 import { MenuButton } from '../Buttons/MenuButton';
 import { AuthButton } from '../Buttons/AuthButton';
 import { AccountButton } from '../Buttons/AccountButton';
-import { getUserData } from '../../../middlewares/redux/actions/account';
 import { faBagShopping, faHome, faScroll, faShield, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigator = () => {
-  const dispatch: any = useDispatch();
   const currentUser: any = useSelector((state: any) => state.currentUser);
-
-  
 
   return (
     <div className={s.container}>
