@@ -13,8 +13,9 @@
 
 .solid {
   gap: 1rem;
+  padding: .3rem;
   border-radius: .3rem;
-  padding: 1rem;
+  padding-inline: 1rem;
   color: white;
   border: none;
   display: flex;
