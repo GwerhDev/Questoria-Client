@@ -12,9 +12,7 @@ export const Navigator = () => {
   const dispatch: any = useDispatch();
   const currentUser: any = useSelector((state: any) => state.currentUser);
 
-  useEffect(() => {
-    dispatch(getUserData());
-  }, [dispatch]);
+  
 
   return (
     <div className={s.container}>
