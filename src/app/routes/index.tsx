@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -15,11 +15,10 @@ import { Navigator } from '../components/Navigator/Navigator';
 import { CircularButtonMenu } from '../components/Buttons/CircularButtonMenu/CircularButtonMenu';
 import { ModalCanvas } from '../components/Canvas/ModalCanvas';
 import { ExperienceBar } from '../components/ExperienceBar/ExperienceBar';
-import { useSelector } from 'react-redux';
 
 function RoutesApp() {
-  const currentUser = useSelector((state: any) => state.currentUser);
-  const isStudent = currentUser?.role === "student";
+  const location = useLocation();
+  const hideCircularButton = location.pathname.startsWith('/profile') || location.pathname.startsWith('/dashboard');
 
   return (
     <div className="viewport">
@@ -46,9 +45,9 @@ function RoutesApp() {
         </div>
         <Footer />
       </main>
-      {isStudent && <CircularButtonMenu />}
+      {!hideCircularButton && <CircularButtonMenu />}
       <ModalCanvas />
-      {isStudent && <ExperienceBar />}
+      <ExperienceBar />
     </div>
   )
 }
