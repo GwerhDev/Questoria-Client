@@ -16,7 +16,7 @@ const CreateAdventureQuest: React.FC = () => {
     e.preventDefault();
     const response = await dispatch(createAdventure(adventureData));
     if (response) {
-      setAdventureId(response.adventureId);
+      setAdventureId(response);
       setStep(2);
     }
   };

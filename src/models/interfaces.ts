@@ -9,6 +9,7 @@ export interface Quest {
   _id: string;
   title: string;
   description: string;
+  adventureId: string;
 }
 
 export interface User {

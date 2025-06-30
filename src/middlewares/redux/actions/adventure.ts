@@ -37,7 +37,7 @@ export const createAdventure = (adventureData: Omit<Adventure, '_id'>) => {
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.post<Adventure>(`${URL_API}/adventure/create`, adventureData, options());
-      return response.data;
+      return response.data._id;
     } catch (error) {
       console.error("Error creating adventure:", error);
     }
