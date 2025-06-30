@@ -1,15 +1,14 @@
 import s from './ProfileHeader.module.css';
-import { useAppDispatch, useAppSelector } from '../../../middlewares/redux/hooks';
+import { useAppSelector } from '../../../middlewares/redux/hooks';
 import { IconButton } from '../Buttons/IconButton';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../../middlewares/redux/actions/auth';
 
 export const ProfileHeader = () => {
   const currentUser = useAppSelector((state) => state.currentUser);
-  const dispatch = useAppDispatch();
 
   const handleLogout = () => {
-    dispatch(logout());
+    logout();
   };
 
   return (

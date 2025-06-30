@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_API } from "../../config";
-import { CURRENT_USER, ERROR, LOGOUT } from "../../misc/consts";
+import { CURRENT_USER, ERROR } from "../../misc/consts";
 import { options } from "../../helpers";
 import { Dispatch } from "redux";
 import { User } from "../../../models/interfaces";
@@ -75,11 +75,6 @@ export function signupGoogle() {
 }
 
 export function logout() {
-  return async (dispatch: Dispatch) => {
-    localStorage.removeItem('userToken');
-    window.location.href = "/login";
-    dispatch({
-      type: LOGOUT,
-    })
-  }
+  localStorage.removeItem('userToken');
+  window.location.href = "/login";
 }
