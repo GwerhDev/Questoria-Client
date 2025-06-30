@@ -19,19 +19,23 @@ import { ModalCanvas } from '../components/Canvas/ModalCanvas';
 import { ExperienceBar } from '../components/ExperienceBar/ExperienceBar';
 import { RootState } from '../../middlewares/redux/reducer';
 import { getUserToken } from '../../middlewares/helpers';
+import { getUserData } from '../../middlewares/redux/actions/account';
+import { useAppDispatch } from '../../middlewares/redux/hooks';
 
 function RoutesApp() {
   const currentUser = useSelector((state: RootState) => state.currentUser);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const hideCircularButton = location.pathname.startsWith('/profile') || location.pathname.startsWith('/dashboard');
-  const navigate = useNavigate();
 
   useEffect(() => {
     const userToken = getUserToken();
-    if (!userToken) {
-      navigate('/login');
-    }
-  }, [currentUser, navigate]);
+    if (!userToken) return navigate('/login');
+
+    dispatch(getUserData());
+
+  }, [currentUser, navigate, dispatch]);
 
   return (
     <div className="viewport">
