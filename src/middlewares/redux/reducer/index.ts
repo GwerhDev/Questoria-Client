@@ -1,9 +1,21 @@
+import { Adventure, User } from "../../../models/interfaces";
 import { CURRENT_ADVENTURE, CURRENT_USER, GET_ADVENTURES, GET_USER_DATA, SET_MENU_TYPE, SET_USER_ACTION, SET_MODAL_OPEN } from "../../misc/consts";
 
-const initialState: any = {
+interface RootState {
+  currentUser: User | null;
+  adventures: Adventure[];
+  currentAdventure: Adventure | null;
+  ui: {
+    menuType: string | null;
+    userAction: string | null;
+    isModalOpen: boolean;
+  };
+}
+
+const initialState: RootState = {
   currentUser: null,
   adventures: [],
-  currentAdventure: [],
+  currentAdventure: null,
   ui: {
     menuType: null,
     userAction: null,
@@ -11,7 +23,7 @@ const initialState: any = {
   },
 }
 
-export default function rootReducer(state: any = initialState, action: any) {
+export default function rootReducer(state: RootState = initialState, action: any) {
   switch (action.type) {
     case CURRENT_USER:
       return {

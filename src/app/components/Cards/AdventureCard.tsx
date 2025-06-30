@@ -2,8 +2,13 @@ import s from './AdventureCard.module.css';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLandmark } from '@fortawesome/free-solid-svg-icons';
+import { Adventure } from '../../../../models/interfaces';
 
-export const AdventureCard = (props: any) => {
+interface Props {
+  adventure: Adventure;
+}
+
+export const AdventureCard = (props: Props) => {
   const { adventure } = props || {};
   const navigate = useNavigate();
 

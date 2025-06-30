@@ -2,14 +2,16 @@ import axios from "axios";
 import { URL_API } from "../../config";
 import { options } from "../../helpers";
 import { CURRENT_ADVENTURE, GET_ADVENTURES } from "../../misc/consts";
+import { Dispatch } from "redux";
+import { Adventure } from "../../../models/interfaces";
 
 export const getAdventures = () => {
-  return async (dispatch: any) => {
+  return async (dispatch: Dispatch) => {
     try {
-      const response: any = await axios.get(`${URL_API}/adventure`, options());
+      const response = await axios.get<{ adventures: Adventure[] }>(`${URL_API}/adventure`, options());
       dispatch({
         type: GET_ADVENTURES,
-        payload: response.data,
+        payload: response.data.adventures,
       });
     } catch (error) {
       console.error("Error fetching adventures:", error);
@@ -18,9 +20,9 @@ export const getAdventures = () => {
 };
 
 export const getCurrentAdventure = (id: string) => {
-  return async (dispatch: any) => {
+  return async (dispatch: Dispatch) => {
     try {
-      const response: any = await axios.get(`${URL_API}/adventure/${id}`, options());
+      const response = await axios.get<Adventure>(`${URL_API}/adventure/${id}`, options());
       dispatch({
         type: CURRENT_ADVENTURE,
         payload: response.data,
@@ -31,10 +33,10 @@ export const getCurrentAdventure = (id: string) => {
   };
 };
 
-export const createAdventure = (adventureData: any) => {
-  return async (dispatch: any) => {
+export const createAdventure = (adventureData: Omit<Adventure, '_id'>) => {
+  return async (dispatch: Dispatch) => {
     try {
-      const response: any = await axios.post(`${URL_API}/adventure/create`, adventureData, options());
+      const response = await axios.post<Adventure>(`${URL_API}/adventure/create`, adventureData, options());
       return response.data;
     } catch (error) {
       console.error("Error creating adventure:", error);

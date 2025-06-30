@@ -11,3 +11,10 @@ export interface Quest {
   description: string;
 }
 
+export interface User {
+  id: string;
+  profilePic: string;
+  username: string;
+  role: string;
+}
+
