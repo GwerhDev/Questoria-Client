@@ -1,8 +1,16 @@
 import s from './ProfileHeader.module.css';
-import { useAppSelector } from '../../../middlewares/redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../middlewares/redux/hooks';
+import { IconButton } from '../Buttons/IconButton';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { logout } from '../../../middlewares/redux/actions/auth';
 
 export const ProfileHeader = () => {
   const currentUser = useAppSelector((state) => state.currentUser);
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <div className={s.container}>
@@ -13,6 +21,7 @@ export const ProfileHeader = () => {
           </div>
           <h2>{currentUser?.username}</h2>
           <p>{currentUser?.role}</p>
+          <IconButton solid icon={faRightFromBracket} onClick={handleLogout}>Cerrar Sesión</IconButton>
         </div>
       </div>
     </div>
