@@ -10,13 +10,6 @@ export const LateralCanvas = () => {
   const menuType = useSelector((state: any) => state.ui.menuType);
   const currrentUser = useSelector((state: any) => state.currentUser);
   const { id } = currrentUser || {};
-
-  function logout() {
-    localStorage.removeItem('userToken');
-    window.location.reload();
-    window.location.href = '/';
-    return null;
-  }
   
   useEffect(() => {
     const handleMouseUp = (e: MouseEvent) => {
@@ -37,7 +30,7 @@ export const LateralCanvas = () => {
 
   return (
     <div className={s.container} id='lateral-canvas'>
-      <Menu type={menuType} logout={logout} userId={id} />
+      <Menu type={menuType} userId={id} />
     </div>
   )
 }

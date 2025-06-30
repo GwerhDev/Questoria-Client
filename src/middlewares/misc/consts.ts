@@ -5,6 +5,7 @@ export const ERROR: string = "ERROR";
 export const CURRENT_USER: string = "CURRENT_USER";
 export const CURRENT_ADVENTURE: string = "CURRENT_ADVENTURE";
 
+export const LOGOUT: string = "LOGOUT";
 export const GET_USER_DATA: string = "GET_USER_DATA";
 export const GET_ADVENTURES: string = "GET_ADVENTURES";
 
