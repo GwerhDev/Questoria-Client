@@ -70,10 +70,7 @@ export default function rootReducer(state: RootState = initialState, action: any
         },
       };
     case LOGOUT_USER:
-      return {
-        ...state,
-        currentUser: null
-      };
+      return initialState;
     default:
       return { ...state };
   }
