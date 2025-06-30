@@ -13,9 +13,9 @@ const CreateAdventureQuest: React.FC = () => {
 
   const handleAdventureSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await dispatch(createAdventure(adventureData));
-    if (response) {
-      setAdventureId(response);
+    const adventureIdResponse = await dispatch(createAdventure(adventureData));
+    if (typeof adventureIdResponse === 'string') {
+      setAdventureId(adventureIdResponse);
       setStep(2);
     }
   };

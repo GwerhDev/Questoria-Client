@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../../middlewares/redux/hooks
 
 export const AdventureList = () => {
   const dispatch = useAppDispatch();
-  const adventures = useAppSelector((state: RootState) => state.adventures);
+  const adventures = useAppSelector((state) => state.adventures);
 
   useEffect(() => {
     dispatch(getAdventures());

@@ -9,8 +9,8 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../middlewares/redux/hooks';
 
 export const CurrentAdventure = () => {
-  const dispatch: AppDispatch = useAppDispatch();
-  const currentAdventure: Adventure | null = useAppSelector((state: RootState) => state.currentAdventure);
+  const dispatch = useAppDispatch();
+  const currentAdventure: Adventure | null = useAppSelector((state) => state.currentAdventure);
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
