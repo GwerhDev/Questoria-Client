@@ -73,12 +73,11 @@ export function signupGoogle() {
   };
 }
 
-export function logout(navigate: (path: string) => void) {
+export function logout() {
   return function (dispatch: Dispatch) {
     localStorage.removeItem('userToken');
     dispatch({
       type: LOGOUT_USER,
     });
-    navigate('/login');
   };
 }
