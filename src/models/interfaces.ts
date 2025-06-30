@@ -2,7 +2,7 @@ export interface Adventure {
   _id: string;
   name: string;
   description: string;
-  quests: Quest[];
+  quests?: Quest[];
 }
 
 export interface Quest {

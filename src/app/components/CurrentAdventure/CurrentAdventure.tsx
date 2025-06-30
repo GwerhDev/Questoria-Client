@@ -7,10 +7,12 @@ import { getCurrentAdventure } from "../../../middlewares/redux/actions/adventur
 import { QuestCard } from "../Cards/QuestCard";
 import { Adventure } from "../../../models/interfaces";
 import { useParams } from 'react-router-dom';
+import { RootState } from '../../../middlewares/redux/reducer';
+import { AppDispatch } from '../../../middlewares/redux/store';
 
 export const CurrentAdventure = () => {
-  const dispatch = useDispatch();
-  const currentAdventure: Adventure | null = useSelector((state: any) => state.currentAdventure);
+  const dispatch: AppDispatch = useDispatch();
+  const currentAdventure: Adventure | null = useSelector((state: RootState) => state.currentAdventure);
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {

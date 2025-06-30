@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { createAdventure } from '../../middlewares/redux/actions/adventure';
 import { createQuest } from '../../middlewares/redux/actions/quest';
 import { Box, Typography, TextField, Button } from '@mui/material';
+import { AppDispatch } from '../../middlewares/redux/store';
 
 const CreateAdventureQuest: React.FC = () => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const [step, setStep] = useState(1);
   const [adventureId, setAdventureId] = useState('');
   const [adventureData, setAdventureData] = useState({ name: '', description: '' });

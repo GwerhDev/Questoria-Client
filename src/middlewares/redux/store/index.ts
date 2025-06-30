@@ -1,25 +1,13 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducer';
-import thunkMiddleware from 'redux-thunk';
-import { DEVELOPMENT } from '../../misc/consts';
-import { environment } from '../../../environment';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-let store: any = {};
-const composeEnhancer = compose;
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
-if (environment === DEVELOPMENT) {
-  store = createStore(
-    rootReducer,
-    compose(
-      applyMiddleware(thunkMiddleware),
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
-  );
-} else {
-  store = createStore(
-    rootReducer,
-    composeEnhancer(applyMiddleware(thunkMiddleware))
-  );
-}
+export type AppDispatch = typeof store.dispatch;
 
 export default store;

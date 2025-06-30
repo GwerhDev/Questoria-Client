@@ -1,7 +1,7 @@
 import { Adventure, User } from "../../../models/interfaces";
 import { CURRENT_ADVENTURE, CURRENT_USER, GET_ADVENTURES, GET_USER_DATA, SET_MENU_TYPE, SET_USER_ACTION, SET_MODAL_OPEN } from "../../misc/consts";
 
-interface RootState {
+export interface RootState {
   currentUser: User | null;
   adventures: Adventure[];
   currentAdventure: Adventure | null;
