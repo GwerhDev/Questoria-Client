@@ -1,18 +1,16 @@
 import s from "./CurrentAdventure.module.css";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { faLandmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getCurrentAdventure } from "../../../middlewares/redux/actions/adventure";
 import { QuestCard } from "../Cards/QuestCard";
 import { Adventure } from "../../../models/interfaces";
 import { useParams } from 'react-router-dom';
-import { RootState } from '../../../middlewares/redux/reducer';
-import { AppDispatch } from '../../../middlewares/redux/store';
+import { useAppDispatch, useAppSelector } from '../../../middlewares/redux/hooks';
 
 export const CurrentAdventure = () => {
-  const dispatch: AppDispatch = useDispatch();
-  const currentAdventure: Adventure | null = useSelector((state: RootState) => state.currentAdventure);
+  const dispatch: AppDispatch = useAppDispatch();
+  const currentAdventure: Adventure | null = useAppSelector((state: RootState) => state.currentAdventure);
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {

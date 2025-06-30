@@ -1,9 +1,8 @@
 import s from './ProfileHeader.module.css';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../middlewares/redux/reducer';
+import { useAppSelector } from '../../../middlewares/redux/hooks';
 
 export const ProfileHeader = () => {
-  const currentUser = useSelector((state: RootState) => state.currentUser);
+  const currentUser = useAppSelector((state) => state.currentUser);
 
   return (
     <div className={s.container}>
