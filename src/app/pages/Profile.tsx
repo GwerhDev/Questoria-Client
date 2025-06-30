@@ -14,7 +14,7 @@ const Profile = () => {
   return (
     <div>
       <ProfileHeader />
-      <IconButton icon={faRightFromBracket} onClick={handleLogout}>Cerrar Sesión</IconButton>
+      <IconButton solid icon={faRightFromBracket} onClick={handleLogout}>Cerrar Sesión</IconButton>
     </div>
   )
 }

@@ -10,3 +10,19 @@
 .container:hover {
   color: var(--app-color-orange-hover);
 }
+
+.solid {
+  gap: 1rem;
+  border-radius: .3rem;
+  padding-inline: 1rem;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--app-color-orange);
+}
+
+.solid:hover {
+  background-color: var(--app-color-orange-hover);
+}

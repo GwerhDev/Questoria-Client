@@ -3,7 +3,7 @@ import s from "./IconButton.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const IconButton = (props: any) => {
-  const { title, icon, size, onClick, to, children } = props || {};
+  const { title, icon, size, onClick, to, children, solid } = props || {};
   const navigate = useNavigate();
 
   const handleOnClick = () => {
@@ -12,7 +12,7 @@ export const IconButton = (props: any) => {
   };
 
   return (
-    <button title={title || ""} className={s.container} onClick={handleOnClick}>
+    <button title={title || ""} className={solid ? s.solid : s.container} onClick={handleOnClick}>
       {icon && <FontAwesomeIcon size={size || 'lg'} icon={icon} />}
       {children}
     </button>
