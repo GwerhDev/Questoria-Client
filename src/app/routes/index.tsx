@@ -35,7 +35,7 @@ function RoutesApp() {
 
     dispatch(getUserData());
 
-  }, [ navigate, dispatch]);
+  }, [navigate, dispatch]);
 
   return (
     <div className="viewport">
