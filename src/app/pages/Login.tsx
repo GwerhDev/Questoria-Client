@@ -12,7 +12,7 @@ const Login = () => {
         <LoginGoogle />
         <div className="divider"/>
         <span className="auth-form-text">
-          ¿Aún no tienes una cuenta? ¡Sign up here and get started with GustavoEduca today! <Link to="/register">Register</Link>
+          ¿Aún no tienes una cuenta? ¡Regístrate hoy en Questoria! <Link to="/register">Registrarse</Link>
         </span>
       </form>
     </div>

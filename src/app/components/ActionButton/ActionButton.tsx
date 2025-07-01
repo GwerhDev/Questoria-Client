@@ -4,7 +4,7 @@ export const ActionButton = () => {
   return (
     <Link to="/">
       <button className="primary-button">
-        GustavoEduca
+        Questoria
       </button>
     </Link>
   )
