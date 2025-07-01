@@ -67,6 +67,7 @@ function RoutesApp() {
           </main>
         </>
       }
+
       <Routes>
         <Route path='/auth' element={<Auth />} />
         <Route path='/login' element={<Login />} />
