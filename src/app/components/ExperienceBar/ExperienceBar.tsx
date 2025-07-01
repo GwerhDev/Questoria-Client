@@ -15,11 +15,10 @@ export const ExperienceBar = () => {
   return (
     <div className={s.container}>
       <div className={s.barBackground}>
+        <div className={`${s.barFill} ${isTeacher && s.teacherBarFill} ${isAdmin && s.adminBarFill} ${isStudent && s.studentBarFill}`} style={{ width: `${(isTeacher || isAdmin) ? 100 : progress}%` }}></div>
         {isAdmin && <span className={s.text}>Admin</span>}
         {isTeacher && <span className={s.text}>Master</span>}
         {isStudent && <span className={s.text}>Level {level} - Exp: {experience}/{maxExperienceForLevel}</span>}
-        <div className={`${s.barFill} ${isTeacher && s.teacherBarFill} ${isAdmin && s.adminBarFill}`} style={{ width: `${(isTeacher || isAdmin) ? 100 : progress}%` }}>
-        </div>
       </div>
     </div>
   );
