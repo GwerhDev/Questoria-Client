@@ -23,9 +23,9 @@ export const LoginInner = () => {
         <input onInput={(e: any) => setPassword(e.target.value)} type="password" placeholder="Password" />
       </div>
       <div>
-        <Link to="/password-recovery">Forgot password?</Link>
+        <Link to="/password-recovery">¿Olvidaste tu contraseña?</Link>
       </div>
-      <button className={s.buttonLogin} onClick={handleLogin}>Login</button>
+      <button className={s.buttonLogin} onClick={handleLogin}>Ingresar</button>
     </>
   )
 }

@@ -4,7 +4,6 @@
   width: 100vw;
   min-height: 50vh;
   background-color: var(--dark-color);
-  color: white;
   display: flex;
   flex-direction: column;
   padding-top: 3rem;

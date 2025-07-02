@@ -5,10 +5,11 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  color: var(--app-white);
 }
 
 .container:hover {
-  color: var(--app-color-orange-hover);
+  color: var(--app-primary-color-hover);
 }
 
 .solid {
@@ -16,14 +17,13 @@
   padding: .3rem;
   border-radius: .3rem;
   padding-inline: 1rem;
-  color: white;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--app-color-orange);
+  background-color: var(--app-primary-color);
 }
 
 .solid:hover {
-  background-color: var(--app-color-orange-hover);
+  background-color: var(--app-primary-color-hover);
 }

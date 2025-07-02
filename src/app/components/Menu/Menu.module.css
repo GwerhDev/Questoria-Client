@@ -11,7 +11,7 @@
 .title {
   font-size: large;
   text-align: left;
-  color: var(--app-color-orange);
+  color: var(--app-primary-color);
 }
 
 .title:hover {
@@ -27,7 +27,8 @@
 
 .menu li:hover {
   cursor: pointer;
-  background-color: var(--app-color-orange);
+  color: white;
+  background-color: var(--app-primary-color);
 }
 
 @keyframes opacity {

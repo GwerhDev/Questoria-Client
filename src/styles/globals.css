@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  color: black;
 }
 
 .container {
@@ -15,13 +14,13 @@
 .primary-button {
   height: 35px;
   border-radius: 3px;
-  background-color: var(--app-color-orange);
+  background-color: var(--app-primary-color);
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
 .primary-button:hover {
-  background-color: var(--app-color-orange-hover);
+  background-color: var(--app-primary-color-hover);
 }
 
 .auth-container {
@@ -33,14 +32,15 @@
 
 .auth-form {
   width: 100%;
+  border-radius: 1rem;
   max-width: 500px;
   padding: 3rem;
-  background-color: white;
   box-shadow: 0 0 10px var(--app-color-grey);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+  background-color: var(--app-white);
 }
 
 .form-group {
@@ -64,7 +64,6 @@
 
 .nolink {
   text-decoration: none;
-  color: white;
 }
 
 .no-border {

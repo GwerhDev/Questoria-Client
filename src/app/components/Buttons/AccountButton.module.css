@@ -10,12 +10,12 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: var(--app-color-orange);
-  border-color: var(--app-color-orange);
+  color: var(--app-primary-color);
+  border-color: var(--app-primary-color);
   background-color: transparent;
 }
 
 .container:hover {
-  border-color: var(--app-color-orange-hover);
+  border-color: var(--app-primary-color-hover);
 }
 

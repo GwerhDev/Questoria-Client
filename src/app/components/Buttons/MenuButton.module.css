@@ -5,8 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--app-white);
 }
 
 .container:hover {
-  color: var(--app-color-orange-hover);
+  color: var(--app-primary-color-hover);
 }

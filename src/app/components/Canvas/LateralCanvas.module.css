@@ -6,7 +6,6 @@
   display: none;
   overflow: auto;
   position: absolute;
-  color: white;
   animation: width 2s forwards;
   background-color: var(--dark-color);
 }

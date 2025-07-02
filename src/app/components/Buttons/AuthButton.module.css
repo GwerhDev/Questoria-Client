@@ -6,11 +6,11 @@
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  color: var(--app-color-orange);
-  border-color: var(--app-color-orange);
+  color: var(--app-primary-color);
+  border-color: var(--app-primary-color);
 }
 
 .container:hover {
-  color: var(--app-color-orange-hover);
+  color: var(--app-primary-color-hover);
 }
 
