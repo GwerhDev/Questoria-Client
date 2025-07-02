@@ -34,9 +34,9 @@ export const ModalCanvas = () => {
         </button>
       </div>
       <div className={s.content}>
-        {userAction === "book" && <p>This is the Book content.</p>}
-        {userAction === "quests" && <p>This is the Quests content.</p>}
-        {userAction === "inventory" && <p>This is the Inventory content.</p>}
+        {userAction === "book" && <>This is the Book content.</>}
+        {userAction === "quests" && <>This is the Quests content.</>}
+        {userAction === "inventory" && <>This is the Inventory content.</>}
       </div>
     </dialog>
   );

@@ -21,24 +21,31 @@
 }
 
 .teacherBarFill {
-  background: linear-gradient(to right, #FFD700, #FFA500); /* Golden gradient */
-  box-shadow: 0 0 4px 1px rgba(255, 215, 0, 0.5); /* Golden glow */
+  background: linear-gradient(to right, #FFD700, #FFA500);
+  /* Golden gradient */
+  box-shadow: 0 0 4px 1px rgba(255, 215, 0, 0.5);
+  /* Golden glow */
 }
 
 .adminBarFill {
-  background: linear-gradient(to right, #FFD700, #FFA500); /* Golden gradient */
-  box-shadow: 0 0 4px 1px rgba(255, 215, 0, 0.5); /* Golden glow */
+  background: linear-gradient(to right, #FFD700, #FFA500);
+  /* Golden gradient */
+  box-shadow: 0 0 4px 1px rgba(255, 215, 0, 0.5);
+  /* Golden glow */
 }
 
 .studentBarFill {
-  background: linear-gradient(to right, #00FF00, #00CC00); /* Radioactive green gradient */
-  animation: radioactiveGlow 1.5s infinite alternate; /* Animation for glow */
+  background: linear-gradient(to right, #00FF00, #00CC00);
+  /* Radioactive green gradient */
+  animation: radioactiveGlow 1.5s infinite alternate;
+  /* Animation for glow */
 }
 
 @keyframes radioactiveGlow {
   from {
     box-shadow: 0 0 2px #00FF00, 0 0 4px #00FF00, 0 0 6px #00FF00;
   }
+
   to {
     box-shadow: 0 0 4px #00FF00, 0 0 8px #00FF00, 0 0 12px #00FF00;
   }
@@ -56,4 +63,6 @@
   margin: 0;
   padding: 0;
   font-size: .7rem;
+  color: var(--app-white-100);
+  text-shadow: 0 0 2px #000000;
 }

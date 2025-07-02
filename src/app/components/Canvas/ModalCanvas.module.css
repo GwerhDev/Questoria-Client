@@ -29,4 +29,6 @@
 
 .content {
   padding: 1rem;
+  color: var(--app-white-500);
+  text-shadow: 0 0 2px #000000;
 }
