@@ -10,7 +10,6 @@ import AccountSettings from '../pages/AccountSettings';
 import Dashboard from '../pages/Dashboard';
 import CreateAdventureQuest from '../pages/CreateAdventureQuest';
 import AdventureDetails from '../pages/AdventureDetails';
-import { getUserToken } from '../../middlewares/helpers';
 import { getUserData } from '../../middlewares/redux/actions/account';
 import { useAppDispatch } from '../../middlewares/redux/hooks';
 import { HUD } from '../layouts/HUD';
@@ -20,11 +19,7 @@ function RoutesApp() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userToken = getUserToken();
-    if (!userToken) return navigate('/login');
-
     dispatch(getUserData());
-
   }, [navigate, dispatch]);
 
   return (

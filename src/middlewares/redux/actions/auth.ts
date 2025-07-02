@@ -1,5 +1,7 @@
 import axios from "axios";
 import { URL_API } from "../../config";
+
+axios.defaults.withCredentials = true;
 import { CURRENT_USER, ERROR, LOGOUT } from "../../misc/consts";
 import { options } from "../../helpers";
 import { Dispatch } from "redux";
@@ -27,8 +29,7 @@ export function loginInner(formData: object, navigate: (path: string) => void) {
   return async function (dispatch: Dispatch) {
     await axios.post<{ token: string; logged: boolean }>(`${URL_API}/login-inner`, formData)
       .then((res) => {
-        localStorage.setItem('userToken', res.data.token);
-        return res.data.logged && navigate(`/auth?token=${res.data.token}`);
+        return res.data.logged && navigate(`/auth`);
       })
       .catch((e: any) => {
         dispatch({
@@ -76,7 +77,7 @@ export function signupGoogle() {
 
 export function logout() {
   return async (dispatch: Dispatch) => {
-    localStorage.removeItem('userToken');
+    await axios.post(`${URL_API}/auth/logout`);
     dispatch({
       type: LOGOUT,
     });
