@@ -2,7 +2,7 @@ import axios from "axios";
 import { Dispatch } from "redux";
 import { URL_API } from "../../config";
 import { User } from "../../../models/interfaces";
-import {  ERROR, LOGOUT } from "../../misc/consts";
+import { ERROR, LOGOUT } from "../../misc/consts";
 
 axios.defaults.withCredentials = true;
 
@@ -58,9 +58,18 @@ export function signupGoogle() {
 
 export function logout() {
   return async (dispatch: Dispatch) => {
-    await axios.post(`${URL_API}/auth/logout`);
-    dispatch({
-      type: LOGOUT,
-    });
+    try {
+      await axios.post(`${URL_API}/auth/logout`).then(() => {
+        dispatch({
+          type: LOGOUT,
+        });
+      })
+
+    } catch (error) {
+      console.error("Error during logout:", error);
+      dispatch({
+        type: LOGOUT,
+      });
+    }
   }
 }
