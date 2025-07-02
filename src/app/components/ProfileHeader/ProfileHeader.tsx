@@ -3,16 +3,13 @@ import { useAppDispatch, useAppSelector } from '../../../middlewares/redux/hooks
 import { IconButton } from '../Buttons/IconButton';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../../middlewares/redux/actions/auth';
-import { useNavigate } from 'react-router-dom';
 
 export const ProfileHeader = () => {
   const currentUser = useAppSelector((state) => state.currentUser);
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/login");
   };
 
   return (
