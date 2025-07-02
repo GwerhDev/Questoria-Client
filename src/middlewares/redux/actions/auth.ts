@@ -1,15 +1,14 @@
 import axios from "axios";
+import { Dispatch } from "redux";
 import { URL_API } from "../../config";
+import { User } from "../../../models/interfaces";
+import { CURRENT_USER, ERROR, LOGOUT } from "../../misc/consts";
 
 axios.defaults.withCredentials = true;
-import { CURRENT_USER, ERROR, LOGOUT } from "../../misc/consts";
-import { options } from "../../helpers";
-import { Dispatch } from "redux";
-import { User } from "../../../models/interfaces";
 
 export function auth(navigate: (path: string) => void) {
   return async function (dispatch: Dispatch) {
-    await axios.get<{ userData: User, logged: boolean }>(`${URL_API}/auth`, options())
+    await axios.get<{ userData: User, logged: boolean }>(`${URL_API}/auth`)
       .then((res) => {
         dispatch({
           type: CURRENT_USER,
