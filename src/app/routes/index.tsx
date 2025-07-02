@@ -19,7 +19,7 @@ function RoutesApp() {
 
   useEffect(() => {
     dispatch(getUserData(navigate));
-  }, [dispatch, navigate]);
+  }, [dispatch]);
 
   return (
     <>
