@@ -2,27 +2,9 @@ import axios from "axios";
 import { Dispatch } from "redux";
 import { URL_API } from "../../config";
 import { User } from "../../../models/interfaces";
-import { CURRENT_USER, ERROR, LOGOUT } from "../../misc/consts";
+import {  ERROR, LOGOUT } from "../../misc/consts";
 
 axios.defaults.withCredentials = true;
-
-export function auth(navigate: (path: string) => void) {
-  return async function (dispatch: Dispatch) {
-    await axios.get<{ userData: User, logged: boolean }>(`${URL_API}/auth`)
-      .then((res) => {
-        dispatch({
-          type: CURRENT_USER,
-          payload: res.data.userData
-        });
-        return res.data.logged && navigate("/");
-      })
-      .catch((e: object) => {
-        console.error(e);
-        navigate("/login");
-        return;
-      });
-  };
-}
 
 export function loginInner(formData: object, navigate: (path: string) => void) {
   return async function (dispatch: Dispatch) {

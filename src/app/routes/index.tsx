@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
-import Auth from '../pages/Auth';
 import Profile from '../pages/Profile';
 import Adventures from '../pages/Adventures';
 import AccountSettings from '../pages/AccountSettings';
@@ -33,7 +32,6 @@ function RoutesApp() {
           <Route path='/account-settings' element={<AccountSettings />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/dashboard/create' element={<CreateAdventureQuest />} />
-          <Route path='/auth' element={<Auth />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>
