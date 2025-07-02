@@ -21,7 +21,7 @@ export const getAdventures = () => {
 export const getCurrentAdventure = (id: string) => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await axios.get<Adventure>(`${URL_API}/adventure/${id}`, options());
+      const response = await axios.get<Adventure>(`${URL_API}/adventure/${id}`);
       dispatch({
         type: CURRENT_ADVENTURE,
         payload: response.data,
@@ -36,7 +36,7 @@ export const createAdventure = (adventureData: Omit<Adventure, '_id'>) => {
   // @ts-ignore
   return async (dispatch: Dispatch) => {
     try {
-      const response = await axios.post<Adventure>(`${URL_API}/adventure/create`, adventureData, options());
+      const response = await axios.post<Adventure>(`${URL_API}/adventure/create`, adventureData);
       return response.data._id;
     } catch (error) {
       console.error("Error creating adventure:", error);
