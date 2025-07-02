@@ -5,7 +5,6 @@ import { Footer } from '../components/Utils/Footer';
 import { Navigator } from '../components/Navigator/Navigator';
 import { ModalCanvas } from '../components/Canvas/ModalCanvas';
 import { ActionButton } from '../components/Buttons/ActionButton';
-import { LateralCanvas } from '../components/Canvas/LateralCanvas';
 import { ExperienceBar } from '../components/ExperienceBar/ExperienceBar';
 
 
