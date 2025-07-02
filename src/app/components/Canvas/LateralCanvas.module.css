@@ -1,11 +1,10 @@
 .container {
-  top: 0;
-  z-index: 98;
+  left: 3rem;
   height: 100%;
   padding: 2rem;
   display: none;
   overflow: auto;
-  position: fixed;
+  position: absolute;
   color: white;
   animation: width 2s forwards;
   background-color: var(--dark-color);

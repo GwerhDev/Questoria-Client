@@ -33,11 +33,16 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100vw;
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
   justify-content: center;
   background-color: var(--bg-color);
+}
+
+main {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 :link,

@@ -4,6 +4,7 @@ import { IconButton } from '../Buttons/IconButton';
 import { MenuButton } from '../Buttons/MenuButton';
 import { AccountButton } from '../Buttons/AccountButton';
 import { faBagShopping, faHome, faScroll, faShield, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+import { LateralCanvas } from '../Canvas/LateralCanvas';
 
 export const Navigator = () => {
   const currentUser: any = useSelector((state: any) => state.currentUser);
@@ -25,6 +26,7 @@ export const Navigator = () => {
           <AccountButton />
         </section>
       </nav>
+      <LateralCanvas />
     </div>
   )
 }

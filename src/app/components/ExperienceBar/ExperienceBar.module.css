@@ -1,20 +1,17 @@
 .container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   background-color: #333;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1500;
 }
 
 .barBackground {
   width: 100%;
   height: .7rem;
   overflow: hidden;
+  position: relative;
 }
 
 .barFill {

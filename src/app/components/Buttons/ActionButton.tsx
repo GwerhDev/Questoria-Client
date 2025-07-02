@@ -1,10 +1,10 @@
-import s from './CircularButtonMenu.module.css';
+import s from './ActionButton.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faHand, faSuitcase, faListCheck } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
-import { setUserAction, setModalOpen } from '../../../../middlewares/redux/actions/ui';
+import { setUserAction, setModalOpen } from '../../../middlewares/redux/actions/ui';
 
-export const CircularButtonMenu = () => {
+export const ActionButton = () => {
   const dispatch = useDispatch();
 
   const handleSubButtonClick = (actionType: string) => {
