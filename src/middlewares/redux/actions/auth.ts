@@ -60,7 +60,6 @@ export function logout() {
   return async (dispatch: Dispatch) => {
     try {
       await axios.post(`${URL_API}/auth/logout`).then(() => {
-        window.location.href = "/login";
         dispatch({
           type: LOGOUT,
         });

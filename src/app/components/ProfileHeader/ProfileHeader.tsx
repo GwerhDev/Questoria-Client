@@ -1,15 +1,18 @@
 import s from './ProfileHeader.module.css';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../middlewares/redux/hooks';
-import { IconButton } from '../Buttons/IconButton';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../../middlewares/redux/actions/auth';
+import { IconButton } from '../Buttons/IconButton';
 
 export const ProfileHeader = () => {
   const currentUser = useAppSelector((state) => state.currentUser);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate('/login');
   };
 
   return (

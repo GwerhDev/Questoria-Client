@@ -14,12 +14,12 @@ import { useAppDispatch } from '../../middlewares/redux/hooks';
 import { HUD } from '../layouts/HUD';
 
 function RoutesApp() {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getUserData());
-  }, [navigate, dispatch]);
+    dispatch(getUserData(navigate));
+  }, [dispatch, navigate]);
 
   return (
     <>
