@@ -3,8 +3,9 @@
 }
 
 .navigator {
-  padding-inline: .5rem;
   height: 100%;
+  padding: 2rem;
+  padding-inline: .5rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -16,8 +17,7 @@
 .menuSection {
   gap: 2rem;
   height: 100%;
-  padding: 2rem;
-  padding-inline: 0;
+  padding-inline: .5rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -25,17 +25,9 @@
   overflow-y: auto;
 }
 
-.accountSection {
-  gap: 1rem;
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .appSection {
   gap: 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
