@@ -18,7 +18,7 @@ export const Navigator = () => {
           <IconButton icon={faShield} to={"/clan"} title="Clan" />
           <IconButton icon={faBagShopping} to={"/shop"} title={"Tienda"} />
           {(currentUser?.role === "admin" || currentUser?.role === "teacher") && (
-            <IconButton icon={faTableColumns} to={"/dashboard"} title={"Dashboard"} />
+            <IconButton icon={faTableColumns} href={"https://dashboard.questoria.cl"} title={"Dashboard"} />
           )}
         </section>
         <section className={s.appSection}>
