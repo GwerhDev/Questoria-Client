@@ -5,10 +5,10 @@ export const ExperienceBar = () => {
   const currentUser = useSelector((state: any) => state.currentUser);
   const experience = currentUser?.experience || 0;
   const level = currentUser?.level || 1;
-  const maxExperienceForLevel = 100;
   const isAdmin = currentUser?.role === "admin";
   const isTeacher = currentUser?.role === "teacher";
   const isStudent = currentUser?.role === "student";
+  const maxExperienceForLevel = 100;
 
   const progress = (experience / maxExperienceForLevel) * 100;
 

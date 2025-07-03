@@ -10,7 +10,7 @@ export const getAdventures = () => {
       const response = await axios.get<{ adventures: Adventure[] }>(`${URL_API}/adventure`);
       dispatch({
         type: GET_ADVENTURES,
-        payload: response.data.adventures,
+        payload: response.data,
       });
     } catch (error) {
       console.error("Error fetching adventures:", error);

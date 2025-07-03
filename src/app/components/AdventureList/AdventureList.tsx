@@ -14,12 +14,14 @@ export const AdventureList = () => {
   }, [dispatch]);
 
   return (
-    <ul className={s.container}>
-      {adventures?.map((adventure: Adventure, index: number) => (
-        <li key={index}>
-          <AdventureCard adventure={adventure} />
-        </li>
-      ))}
-    </ul>
+    <div className={s.container}>
+      <ul className={s.list}>
+        {adventures?.map((adventure: Adventure, index: number) => (
+          <li key={index}>
+            <AdventureCard adventure={adventure} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
