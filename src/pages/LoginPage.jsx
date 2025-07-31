@@ -41,32 +41,47 @@ const LoginPage = () => {
   }, [logged, navigate]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-background text-text-primary">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 bg-gray-800 rounded-lg shadow-lg">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="p-2 text-white bg-gray-700 border border-gray-600 rounded"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="p-2 text-white bg-gray-700 border border-gray-600 rounded"
-          required
-        />
-        <button type="submit" className="p-2 text-white rounded bg-gray-700 hover:bg-gray-600 transition-colors duration-300">
-          Login
-        </button>
-      </form>
-      <a href="/login-google" className="flex items-center justify-center gap-2 p-2 mt-4 text-black bg-white rounded hover:bg-gray-200">
-        <FontAwesomeIcon icon={faGoogle} />
-        Login with Google
-      </a>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-text-primary p-4">
+      <div className="w-full max-w-md p-8 space-y-8 bg-surface rounded-2xl shadow-2xl backdrop-blur-sm bg-opacity-50 border border-border">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-text-primary">Bienvenido a Questoria</h1>
+          <p className="mt-2 text-text-secondary">Ingresa tus datos para comenzar tu aventura</p>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="relative">
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-4 text-white bg-transparent border-2 border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300"
+              required
+            />
+          </div>
+          <div className="relative">
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-4 text-white bg-transparent border-2 border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300"
+              required
+            />
+          </div>
+          <button type="submit" className="w-full p-4 font-bold text-white rounded-lg bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-all duration-300 shadow-lg">
+            Iniciar sesión
+          </button>
+        </form>
+        <div className="flex items-center justify-center space-x-2">
+          <hr className="w-full border-border" />
+          <p className="px-2 text-text-secondary whitespace-nowrap">o</p>
+          <hr className="w-full border-border" />
+        </div>
+        <a href="/login-google" className="flex items-center justify-center w-full p-4 space-x-3 text-lg font-medium text-text-primary bg-transparent border-2 border-border rounded-lg hover:bg-gray-700 hover:border-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 shadow-lg">
+          <FontAwesomeIcon icon={faGoogle} />
+          <span>Iniciar sesión con Google</span>
+        </a>
+      </div>
     </div>
   );
 };
