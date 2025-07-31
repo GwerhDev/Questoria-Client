@@ -3,6 +3,7 @@ import { Sidebar } from '../components/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAccountData, logoutUser } from '../store/accountSlice';
 import { Link, useNavigate } from 'react-router-dom';
+import { ExperienceBar } from '../components/ExperienceBar';
 import { Loader } from '../components/Loader';
 
 const DashboardLayout = ({ children }) => {
@@ -71,44 +72,47 @@ const DashboardLayout = ({ children }) => {
   }
 
   return (
-    <div className="flex h-screen font-sans text-gray-400 max-w-full overflow-x-hidden">
-      <div ref={sidebarRef}>
-        <Sidebar isCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} isMobile={isMobile} />
-      </div>
+    <div className="flex flex-col h-screen font-sans text-gray-400 max-w-full overflow-x-hidden">
+      <div className="flex flex-1 overflow-hidden">
+        <div ref={sidebarRef}>
+          <Sidebar isCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} isMobile={isMobile} />
+        </div>
 
-      {/* Main Content Wrapper */}
-      <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-300 ${isMobile ? 'ml-16' : ''}`}>
-        {/* Navbar */}
-        <header className="p-4 flex justify-end items-center">
-          <div className="flex items-center space-x-4">
-            {accountData && accountData.logged && (
-              <div className="relative" ref={dropdownRef}>
-                <button onClick={toggleDropdown} className="flex items-center space-x-2 p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors duration-300 focus:outline-none">
-                  {accountData.userData.profilePic ? (
-                    <img src={accountData.userData.profilePic} alt="Profile" className="w-8 h-8 rounded-full" />
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm">{accountData.userData.username.charAt(0).toUpperCase()}</div>
+        {/* Main Content Wrapper */}
+        <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-300 ${isMobile ? 'ml-16' : ''}`}>
+          {/* Navbar */}
+          <header className="p-4 flex justify-end items-center">
+            <div className="flex items-center space-x-4">
+              {accountData && accountData.logged && (
+                <div className="relative" ref={dropdownRef}>
+                  <button onClick={toggleDropdown} className="flex items-center space-x-2 p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors duration-300 focus:outline-none">
+                    {accountData.userData.profilePic ? (
+                      <img src={accountData.userData.profilePic} alt="Profile" className="w-8 h-8 rounded-full" />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm">{accountData.userData.username.charAt(0).toUpperCase()}</div>
+                    )}
+                    <span className="text-text-primary hidden md:block">{accountData.userData.username}</span>
+                  </button>
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-surface rounded-md shadow-lg py-1 z-20">
+                      <Link to="/u/account" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-text-primary hover:bg-gray-700">Ver perfil</Link>
+                      <button onClick={() => { dispatch(logoutUser()); setIsDropdownOpen(false); }} className="block w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-gray-700">Cerrar sesión</button>
+                    </div>
                   )}
-                  <span className="text-text-primary hidden md:block">{accountData.userData.username}</span>
-                </button>
-                {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-surface rounded-md shadow-lg py-1 z-20">
-                    <Link to="/u/account" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-text-primary hover:bg-gray-700">Ver perfil</Link>
-                    <button onClick={() => { dispatch(logoutUser()); setIsDropdownOpen(false); }} className="block w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-gray-700">Cerrar sesión</button>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </header>
+                </div>
+              )}
+            </div>
+          </header>
 
-        {/* Content Area */}
-        <main className="flex-1 overflow-auto p-2 max-w-content mx-auto w-full">
-          <div className="w-full h-full supports-backdrop-blur:bg-opacity-50 rounded-lg p-2">
-            {children}
-          </div>
-        </main>
+          {/* Content Area */}
+          <main className="flex-1 overflow-auto p-2 max-w-content mx-auto w-full">
+            <div className="w-full h-full supports-backdrop-blur:bg-opacity-50 rounded-lg p-2">
+              {children}
+            </div>
+          </main>
+        </div>
       </div>
+      <ExperienceBar />
     </div>
   );
 };

@@ -18,7 +18,16 @@ export default {
       },
       backgroundColor: {
         'transparent': 'rgba(26, 16, 10, 0.2)',
-      }
+      },
+      keyframes: {
+        radioactiveGlow: {
+          'from': { boxShadow: '0 0 2px #00FF00, 0 0 4px #00FF00, 0 0 6px #00FF00' },
+          'to': { boxShadow: '0 0 4px #00FF00, 0 0 8px #00FF00, 0 0 12px #00FF00' },
+        },
+      },
+      animation: {
+        radioactiveGlow: 'radioactiveGlow 1.5s infinite alternate',
+      },
     },
   },
   plugins: [
