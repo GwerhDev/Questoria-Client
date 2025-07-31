@@ -22,7 +22,7 @@ const DashboardLayout = ({ children }) => {
     dispatch(fetchAccountData())
       .then((response) => {
         if (response.error) {
-          navigate('/unauthorized');
+          navigate('/login');
         }
       })
       .finally(() => {
