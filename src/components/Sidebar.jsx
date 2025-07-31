@@ -1,10 +1,12 @@
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faCog, faChevronLeft, faChevronRight, faPen, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight, faHome, faScroll, faShield, faBagShopping, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export const Sidebar = ({ isCollapsed, toggleSidebar, isMobile }) => {
+  const accountData = useSelector((state) => state.account.data);
   const widthClass = isCollapsed ? (isMobile ? 'w-16' : '') : 'w-64';
   const location = useLocation();
 
@@ -16,13 +18,15 @@ export const Sidebar = ({ isCollapsed, toggleSidebar, isMobile }) => {
     return location.pathname.startsWith(path) ? `${baseClasses} bg-gray-600 text-white` : baseClasses;
   };
 
+  const toDashboard = 'https://dashboard.questoria.cl'
+
   return (
     <aside
       className={`
         text-text-primary flex flex-col bg-surface backdrop-blur-lg 
         supports-backdrop-blur:bg-opacity-75 h-full
         transition-all duration-300 ease-in-out z-10
-        ${isMobile ? 'absolute' : 'relative'}
+        ${isMobile ? 'absolute overflow-auto m-0' : 'relative'}
         ${widthClass}
       `}
     >
@@ -33,22 +37,29 @@ export const Sidebar = ({ isCollapsed, toggleSidebar, isMobile }) => {
 
       <div className={`flex-1 flex flex-col justify-between`}>
         <nav className="p-4 space-y-2">
-          <Link to="/" className={getLinkClass('/')}>
+          <Link to="/" title='Inicio' className={getLinkClass('/')}>
             <FontAwesomeIcon icon={faHome} />
-            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Dashboard</span>
+            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Inicio</span>
           </Link>
-          <Link to="/users" className={getLinkClass('/users')}>
-            <FontAwesomeIcon icon={faUsers} />
-            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Users</span>
+          <Link to="/adventure" title='Aventuras' className={getLinkClass('/users')}>
+            <FontAwesomeIcon icon={faScroll} />
+            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Aventuras</span>
           </Link>
-          <Link to="/creator" className={getLinkClass('/creator')}>
-            <FontAwesomeIcon icon={faPen} />
-            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Creator</span>
+          <Link to="/clan" title='Clan' className={getLinkClass('/creator')}>
+            <FontAwesomeIcon icon={faShield} />
+            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Clan</span>
           </Link>
-          <Link to="/settings" className={getLinkClass('/settings')}>
-            <FontAwesomeIcon icon={faCog} />
-            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Settings</span>
+          <Link to="/shop" title='Tienda' className={getLinkClass('/settings')}>
+            <FontAwesomeIcon icon={faBagShopping} />
+            <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Tienda</span>
           </Link>
+          {
+            accountData?.userData.role === 'admin' &&
+            <a href={toDashboard} className={getLinkClass('/settings')}>
+              <FontAwesomeIcon icon={faTableColumns} />
+              <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Shop</span>
+            </a>
+          }
         </nav>
 
         <div className="p-4">

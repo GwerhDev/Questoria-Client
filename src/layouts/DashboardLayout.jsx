@@ -7,7 +7,7 @@ import { Loader } from '../components/Loader';
 
 const DashboardLayout = ({ children }) => {
   const accountData = useSelector((state) => state.account.data);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(window.innerWidth < 768);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -33,7 +33,9 @@ const DashboardLayout = ({ children }) => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      setIsSidebarCollapsed(mobile);
+      if (mobile) {
+        setIsSidebarCollapsed(true);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -79,11 +81,6 @@ const DashboardLayout = ({ children }) => {
         {/* Navbar */}
         <header className="p-4 flex justify-end items-center">
           <div className="flex items-center space-x-4">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="p-2 rounded-xl bg-transparent border border-gray-500 text-text-primary focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-300"
-            />
             {accountData && accountData.logged && (
               <div className="relative" ref={dropdownRef}>
                 <button onClick={toggleDropdown} className="flex items-center space-x-2 p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors duration-300 focus:outline-none">
