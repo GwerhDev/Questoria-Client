@@ -57,7 +57,7 @@ export const Sidebar = ({ isCollapsed, toggleSidebar, isMobile }) => {
             accountData?.userData.role === 'admin' &&
             <a href={toDashboard} className={getLinkClass('/settings')}>
               <FontAwesomeIcon icon={faTableColumns} />
-              <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Shop</span>
+              <span className={`ml-2 ${isCollapsed ? 'hidden' : 'block'}`}>Dashboard</span>
             </a>
           }
         </nav>
