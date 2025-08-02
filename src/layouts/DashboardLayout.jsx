@@ -86,8 +86,8 @@ const DashboardLayout = ({ children }) => {
               {accountData && accountData.logged && (
                 <div className="relative" ref={dropdownRef}>
                   <button onClick={toggleDropdown} className="flex items-center space-x-2 p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors duration-300 focus:outline-none">
-                    {accountData.userData.profilePic ? (
-                      <img src={accountData.userData.profilePic} alt="Profile" className="w-8 h-8 rounded-full" />
+                    {accountData.userData.profile_pic ? (
+                      <img src={accountData.userData.profile_pic} alt="Profile" className="w-8 h-8 rounded-full" />
                     ) : (
                       <div className="w-8 h-8 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm">{accountData.userData.username.charAt(0).toUpperCase()}</div>
                     )}
